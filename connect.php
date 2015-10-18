@@ -1,4 +1,9 @@
 <?php
-  $link = mysql_connect("localhost", "root", "usbw") or die ("Falha ao conectar ao servidor" . mysql_error());
-  $bd = mysql_select_db("matchfood", $link) or die ("Falha ao conectar ao servidor" . mysql_error());
- ?>
+  $link = mysqli_connect("localhost", "root", "usbw");
+  $bd = mysqli_select_db($link, "matchfood");
+
+  if(mysqli_connect_errno()){
+      echo "Falha na conexão com BD" . mysqli_connect_error();
+  }else{
+      echo "Conexão bem sucedida<br>";
+  }

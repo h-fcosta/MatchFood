@@ -19,6 +19,8 @@
         <script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
         <script src="js/tms-0.3.js" type="text/javascript"></script>
         <script src="js/tms_presets.js" type="text/javascript"></script>
+        
+        <script src="scripts/js.js" type="text/javascript"></script>
     </head>
 
     <body id="page1">
@@ -117,9 +119,8 @@
                                     <article class="col-2">
                                         <h3>Procure Aqui</h3>
                                         <p>
-                                        <form action="busca.php" method="get">
-                                            <input type="text" name="term" placeholder="Pesquisar" /><br />
-                                            <input type="submit" name="submit" value="Match!" />
+                                        <form action="scripts/pesquisa.php" method="get">
+                                            <input type="text" placeholder="Pesquisar" name="s" onkeypress="VerificaTecla()"/><br />
                                         </form>
                                         </p>
                                         <!--
@@ -140,41 +141,40 @@
                 <div class="block"></div>
             </div>
         </div>
-    </div>
-    <!--==============================footer=================================-->
-    <footer>
-        <div class="padding">
-            <div class="main">
-                <div class="wrapper">
-                    <div class="fleft footer-text">
-                        <span>MatchFood</span> &copy; 2015
-                        <strong>NTRQ <br>
+        <!--==============================footer=================================-->
+        <footer>
+            <div class="padding">
+                <div class="main">
+                    <div class="wrapper">
+                        <div class="fleft footer-text">
+                            <span>MatchFood</span> &copy; 2015
+                            <strong>NTRQ <br>
 
-                            Nati & Rique</strong>
+                                Nati & Rique</strong>
+                        </div>
+                        <ul class="list-services">
+                            <li>Siga-nos:</li>
+                            <li><a class="tooltips" title="facebook" href="#"></a></li>
+                            <li class="item-1"><a class="tooltips" title="twitter" href="#"></a></li>
+                        </ul>
                     </div>
-                    <ul class="list-services">
-                        <li>Siga-nos:</li>
-                        <li><a class="tooltips" title="facebook" href="#"></a></li>
-                        <li class="item-1"><a class="tooltips" title="twitter" href="#"></a></li>
-                    </ul>
                 </div>
             </div>
-        </div>
-    </footer>
-    <script type="text/javascript"> Cufon.now();</script>
-    <script type="text/javascript">
-        $(window).load(function () {
-            $('.slider')._TMS({
-                duration: 1000,
-                easing: 'easeOutQuart',
-                preset: 'simpleFade',
-                slideshow: 10000,
-                banners: 'fade',
-                pauseOnHover: true,
-                waitBannerAnimation: false,
-                pagination: '.pags'
+        </footer>
+        <script type="text/javascript"> Cufon.now();</script>
+        <script type="text/javascript">
+            $(window).load(function () {
+                $('.slider')._TMS({
+                    duration: 1000,
+                    easing: 'easeOutQuart',
+                    preset: 'simpleFade',
+                    slideshow: 10000,
+                    banners: 'fade',
+                    pauseOnHover: true,
+                    waitBannerAnimation: false,
+                    pagination: '.pags'
+                });
             });
-        });
-    </script>
-</body>
+        </script>
+    </body>
 </html>
