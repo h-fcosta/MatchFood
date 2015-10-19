@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+    <?php
+    include ("connect.php");
+    ?>
     <head>
         <title>MatchFood</title>
         <meta charset="utf-8">
@@ -119,7 +122,7 @@
                                     <article class="col-2">
                                         <h3>Procure Aqui</h3>
                                         <p>
-                                        <form action="scripts/pesquisa.php" method="get">
+                                        <form action="pesquisa.php" method="get">
                                             <input type="text" placeholder="Pesquisar" name="s" onkeypress="VerificaTecla()"/><br />
                                         </form>
                                         </p>
@@ -154,8 +157,8 @@
                         </div>
                         <ul class="list-services">
                             <li>Siga-nos:</li>
-                            <li><a class="tooltips" title="facebook" href="#"></a></li>
-                            <li class="item-1"><a class="tooltips" title="twitter" href="#"></a></li>
+                            <li><a class="tooltips" title="facebook" href="https://www.facebook.com/matchfood"></a></li>
+                            <li class="item-1"><a class="tooltips" title="twitter" href="https://www.twitter.com/"></a></li>
                         </ul>
                     </div>
                 </div>

@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+    <?php
+    include ("connect.php");
+    ?>
     <head>
-        <title></title>
+        <?php
+        @$idT = $_GET['id'];
+        $t = mysqli_query($link, "SELECT NomeRec FROM receitas WHERE idReceitas = $idT;");
+        while ($title = mysqli_fetch_array($t)) {
+            $titulo = $title['NomeRec'];
+        }
+
+        echo '<title>' . $titulo . '</title>';
+        ?>
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
@@ -57,50 +68,64 @@
                         <div class="indent">
                             <div class="wrapper">
                                 <article class="col-1">
-                                    <div class="indent-left">                                    
-                                        <p align="justify"><h3>Sua Lasanha</h3>
+                                    <div class="indent-left">  
+                                        <?php
+                                        @$id = $_GET['id'];
+                                        $query = mysqli_query($link, "SELECT Foto, NomeRec, Tipo, Origem, Ingredientes, Modo, Tempo, Rendimento FROM receitas where idReceitas = '$id';");
+
+                                        while ($info = mysqli_fetch_array($query)) {
+                                            $foto = $info['Foto'];
+                                            $nome = $info['NomeRec'];
+                                            $tipo = $info['Tipo'];
+                                            $origem = $info['Origem'];
+                                            $ingredientes = $info['Ingredientes'];
+                                            $modo = $info['Modo'];
+                                            $tempo = $info['Tempo'];
+                                            $rendimento = $info['Rendimento'];
+                                        }
+                                        echo '<p align="justify"><h3>' . $nome . '</h3>
 
                                         <div class="wrapper p3">
-                                            <figure class="img-indent"><img src="images/slider-img1.jpg" style="height:375px; width:640px;" alt="" /></figure>
+                                            <figure class="img-indent"><img src="' . $foto . '" style="height:375px; width:640px;" alt="" /></figure>
                                         </div>
 
                                         <h6>INGREDIENTES: </h6></p>
-                                        <p>
-                                            - 500 g de massa de lasanha
-                                            <br>- 500 g de carne moida
-                                            <br>- 2 caixas creme de leite
-                                            <br>- 2 ou 3 colheres de manteiga
-                                            <br>- 2 a 3 colheres de farinha de trigo
-                                            <br>- 500 g de presunto
-                                            <br>- 500 g de mussarela
-                                            <br>- Sal a gosto
-                                            <br>- 2 copos de leite (mais ou menos)
-                                            <br>- 1 cebola ralada
-                                            <br>- 3 colheres de óleo
-                                            <br>- 3 dentinhos de alho amassados
-                                            <br>- 1 pacotinho de queijo ralado
+                                        <p>' . $ingredientes .
+                                        /* - 500 g de massa de lasanha
+                                          <br>- 500 g de carne moida
+                                          <br>- 2 caixas creme de leite
+                                          <br>- 2 ou 3 colheres de manteiga
+                                          <br>- 2 a 3 colheres de farinha de trigo
+                                          <br>- 500 g de presunto
+                                          <br>- 500 g de mussarela
+                                          <br>- Sal a gosto
+                                          <br>- 2 copos de leite (mais ou menos)
+                                          <br>- 1 cebola ralada
+                                          <br>- 3 colheres de óleo
+                                          <br>- 3 dentinhos de alho amassados
+                                          <br>- 1 pacotinho de queijo ralado */ ' 
                                         </p>
                                     </div>
                                     <div class="bg">
                                         <div class="padding">
                                             <h3>Modo de Preparo:</h3>
-                                            <p align="justify" class="p1">
-                                                <b>1.</b> Cozinhe massa al dente, após cozido passe um pouco de manteiga para que não grude (reserve).
-                                                <br><b>2.</b> Existem massas que não precisam de cozimento
+                                            <p align="justify" class="p1">'
+                                        . $modo .
+                                        /* <b>1.</b> Cozinhe massa al dente, após cozido passe um pouco de manteiga para que não grude (reserve).
+                                          <br><b>2.</b> Existem massas que não precisam de cozimento
 
-                                                <br><br><b>Molho à bolonhesa:</b>
-                                                <br><b>1.</b> Refogue o alho, a cebola, a carne moída, depois acrescente o molho de tomate, deixe cozinhar por 3 minutos, reserve.
+                                          <br><br><b>Molho à bolonhesa:</b>
+                                          <br><b>1.</b> Refogue o alho, a cebola, a carne moída, depois acrescente o molho de tomate, deixe cozinhar por 3 minutos, reserve.
 
-                                                <br><br><b>Molho branco:</b>
-                                                <br><b>1.</b> Derreta a margarina, coloque as 3 colheres de farinha de trigo e mexa.
-                                                <br><b>2.</b> Depois coloque o leite aos poucos e continue mexendo, por último coloque o creme de leite e dê mais uma mexida e desligue.
+                                          <br><br><b>Molho branco:</b>
+                                          <br><b>1.</b> Derreta a margarina, coloque as 3 colheres de farinha de trigo e mexa.
+                                          <br><b>2.</b> Depois coloque o leite aos poucos e continue mexendo, por último coloque o creme de leite e dê mais uma mexida e desligue.
 
-                                                <br><br><b>Montagem:</b>
-                                                <br><b>1.</b> Em uma forma coloque no fundo um pouco de molho à bolonhesa, a metade da massa, a metade do presunto, a metade da mussarela, todo o molho branco, o restante do massa, o restante do presunto, o restante da mussarela, o restante do molho à bolonhesa e por último salpique com queijo ralado.
-                                                <br><b>2.</b> Levar ao forno para gratinar e depois é só saborear. Hmmm!
+                                          <br><br><b>Montagem:</b>
+                                          <br><b>1.</b> Em uma forma coloque no fundo um pouco de molho à bolonhesa, a metade da massa, a metade do presunto, a metade da mussarela, todo o molho branco, o restante do massa, o restante do presunto, o restante da mussarela, o restante do molho à bolonhesa e por último salpique com queijo ralado.
+                                          <br><b>2.</b> Levar ao forno para gratinar e depois é só saborear. Hmmm! */' 
                                             </p>
                                             <div class="wrapper">
-
                                             </div>
                                         </div>
                                     </div>
@@ -110,20 +135,20 @@
 
                                     <blockquote>Tempo de Preparo</blockquote>
                                     <div>
-                                        <strong class="color-3">50min</strong>
+                                        <strong class="color-3">' . $tempo . '</strong>
                                     </div>
                                     <br> 
                                     <blockquote>Rendimento</blockquote>
                                     <div>
-                                        <strong class="color-3">15 Porções</strong>
+                                        <strong class="color-3">' . $rendimento . '</strong>
                                     </div>
 
                                     <br> 
                                     <blockquote>Tags</blockquote>
                                     <div>
                                         <strong class="color-3">Italiana, lasanha, carne moída, queijo, massa </strong>
-                                    </div>
-
+                                    </div>';
+                                        ?>
                                 </article>
                             </div>
                         </div>
@@ -145,8 +170,8 @@
                         </div>
                         <ul class="list-services">
                             <li>Siga-nos:</li>
-                            <li><a class="tooltips" title="facebook" href="#"></a></li>
-                            <li class="item-1"><a class="tooltips" title="twitter" href="#"></a></li>
+                            <li><a class="tooltips" title="facebook" href="https://www.facebook.com/matchfood"></a></li>
+                            <li class="item-1"><a class="tooltips" title="twitter" href="https://www.twitter.com/"></a></li>
                         </ul>
                     </div>
                 </div>
