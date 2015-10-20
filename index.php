@@ -123,7 +123,8 @@
                                         <h3>Procure Aqui</h3>
                                         <p>
                                         <form action="pesquisa.php" method="get">
-                                            <input type="text" placeholder="Pesquisar" name="s" onkeypress="VerificaTecla()"/><br />
+                                            <input type="text" placeholder="Pesquisar" name="s" onkeypress="VerificaTecla()"/>
+                                            <input type="submit" name="submit" value="Match!" class="button-3"/>
                                         </form>
                                         </p>
                                         <!--

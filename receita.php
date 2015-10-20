@@ -83,7 +83,7 @@
                                             $tempo = $info['Tempo'];
                                             $rendimento = $info['Rendimento'];
                                         }
-                                        echo '<p align="justify"><h3>' . $nome . '</h3>
+                                        echo '<p align="justify"><h3 class="border-bot">' . $nome . '</h3>
 
                                         <div class="wrapper p3">
                                             <figure class="img-indent"><img src="' . $foto . '" style="height:375px; width:640px;" alt="" /></figure>
@@ -131,6 +131,12 @@
                                     </div>
                                 </article>
                                 <article class="col-2">
+                                <p>
+                                <form action="pesquisa.php" method="get">
+                                    <input type="text" name="s" placeholder="Pesquisar" style="width: 150px;"/>
+                                    <input type="submit" name="submit" value="Match!" class="button-3"/>
+                                </form>
+                                </p>
                                     <h3 class="border-bot">Informações:</h3>
 
                                     <blockquote>Tempo de Preparo</blockquote>
@@ -170,8 +176,8 @@
                         </div>
                         <ul class="list-services">
                             <li>Siga-nos:</li>
-                            <li><a class="tooltips" title="facebook" href="https://www.facebook.com/matchfood"></a></li>
-                            <li class="item-1"><a class="tooltips" title="twitter" href="https://www.twitter.com/"></a></li>
+                            <li><a class="tooltips" title="facebook" href="https://www.facebook.com/matchfood" target="_blank"></a></li>
+                            <li class="item-1"><a class="tooltips" title="twitter" href="https://www.twitter.com/" target="_blank"></a></li>
                         </ul>
                     </div>
                 </div>

@@ -78,17 +78,21 @@
                                 <article class="col-1">
                                     <div class="bg">
                                         <div class="padding">
-                                            <h3 class="p2">O que procuro:</h3>
+                                            <h3 class="p2 border-bot">O que procuro:</h3>
 
                                             <?php
+                                            if($cons == ""){
+                                            echo '<h2>Busca inválida. Tente novamente.</h2>';
+                                            }else{
+                                            //echo '<h2>'.$cons . '</h2>';
                                             $query = mysqli_query($link, "SELECT idReceitas, Foto, NomeRec, Tipo, Origem FROM matchfood.receitas where
                                             tag1 LIKE '%" . $cons . "%' or tag2 LIKE '%" . $cons . "%' or tag3 LIKE '%" . $cons .
-                                                    "%'or tag4 LIKE '%" . $cons . "%' or tag5 LIKE '%" . $cons . "%' or tag6 LIKE '%" .
-                                                    $cons . "%' or tag7 LIKE'%" . $cons . "%' or tag8 LIKE '%" . $cons . "%' or tag9 LIKE
+                                            "%'or tag4 LIKE '%" . $cons . "%' or tag5 LIKE '%" . $cons . "%' or tag6 LIKE '%" .
+                                            $cons . "%' or tag7 LIKE'%" . $cons . "%' or tag8 LIKE '%" . $cons . "%' or tag9 LIKE
                                             '%" . $cons . "%' or tag10 LIKE '%" . $cons . "%';");
 
                                             while ($info = mysqli_fetch_assoc($query)) {
-                                                echo '<div class="wrapper p3">
+                                            echo '<div class="wrapper p3">
                                                 <figure class="img-indent"><img src="' . $info['Foto'] . '" style="width:200px; height:166px;" alt="" /></figure>
                                                 <div class="extra-wrap">
                                                     <h6>' . $info['NomeRec'] . '</h6>
@@ -98,14 +102,15 @@
                                                 </div>
                                             </div>';
                                             }
+                                            }
                                             ?>
                                         </div>
                                     </div>
                                 </article>
                                 <p>
-                                <form action="scripts/pesquisa.php" method="get">
-                                    <input type="text" name="s" placeholder="queijo, carne moída, massa" /><br />
-                                    <input type="submit" name="submit" value="Match!" />
+                                <form action="pesquisa.php" method="get">
+                                    <input type="text" name="s" placeholder="Pesquisar" style="width: 150px;" />
+                                    <input type="submit" name="submit" value="Match!" class="button-3"/>
                                 </form>
                                 </p>
                             </div>

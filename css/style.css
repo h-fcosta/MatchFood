@@ -337,6 +337,24 @@ h6 {color:#4c4c4c;}
 }
 .button-2:hover {background:#000;}
 
+.button-3 {
+	display:inline-block; 
+	padding:0px 18px 2px;
+	font-family: 'Adamina', serif;
+	font-size:11px;
+        font-weight: bold;
+	line-height:1.7em;
+	color:#ca4b00; 
+	border:1px solid #fff;
+	background:url(../images/button1-tail.gif) 0 0 repeat-x #e6e6e6;
+	//box-shadow: 0px 2px 3px #888;
+	-moz-box-shadow: 0px 2px 3px #888;
+	-webkit-box-shadow: 0px 2px 3px #888;
+	margin:0 0 3px 3px;
+	cursor:pointer;
+}
+.button-3:hover {background:#e6e6e6;}
+
 .list-1 li {
 	font-size:14px;
 	line-height:24px; 
