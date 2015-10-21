@@ -127,11 +127,6 @@
                                             <input type="submit" name="submit" value="Match!" class="button-3"/>
                                         </form>
                                         </p>
-                                        <!--
-                                           <div class="relative">
-                                               <a class="button-2" href="#">Pesquisar</a>
-                                           </div>
-                                        -->  
                                     </article>
                                 </div>
                             </div>

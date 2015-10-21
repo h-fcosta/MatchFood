@@ -81,18 +81,22 @@
                                             <h3 class="p2 border-bot">O que procuro:</h3>
 
                                             <?php
-                                            if($cons == ""){
-                                            echo '<h2>Busca inválida. Tente novamente.</h2>';
-                                            }else{
-                                            //echo '<h2>'.$cons . '</h2>';
-                                            $query = mysqli_query($link, "SELECT idReceitas, Foto, NomeRec, Tipo, Origem FROM matchfood.receitas where
-                                            tag1 LIKE '%" . $cons . "%' or tag2 LIKE '%" . $cons . "%' or tag3 LIKE '%" . $cons .
-                                            "%'or tag4 LIKE '%" . $cons . "%' or tag5 LIKE '%" . $cons . "%' or tag6 LIKE '%" .
-                                            $cons . "%' or tag7 LIKE'%" . $cons . "%' or tag8 LIKE '%" . $cons . "%' or tag9 LIKE
-                                            '%" . $cons . "%' or tag10 LIKE '%" . $cons . "%';");
+                                            if ($cons == "") {
+                                                echo '<h2>Busca inválida. Tente novamente.</h2>';
+                                            } else {
+                                                $sql = 'SELECT * FROM receitas WHERE ';
+                                                foreach (array_filter(explode(" ", $cons), 'strlen') as $keyword) {
+                                                    for ($i = 1; $i <= 10; $i++) {
+                                                        $where [] = 'tag' . $i . " LIKE '" . mysqli_escape_string($link, '%' . addcslashes($keyword, '%_\\') . '%') . "'";
+                                                    }
+                                                }
 
-                                            while ($info = mysqli_fetch_assoc($query)) {
-                                            echo '<div class="wrapper p3">
+                                                $sql .= implode(" or ", $where);
+
+                                                $query = mysqli_query($link, $sql);
+
+                                                while ($info = mysqli_fetch_assoc($query)) {
+                                                    echo '<div class="wrapper p3">
                                                 <figure class="img-indent"><img src="' . $info['Foto'] . '" style="width:200px; height:166px;" alt="" /></figure>
                                                 <div class="extra-wrap">
                                                     <h6>' . $info['NomeRec'] . '</h6>
@@ -101,7 +105,7 @@
                                                     <a class="button-2" href="receita.php?id=' . $info['idReceitas'] . '">Ver Receita</a>
                                                 </div>
                                             </div>';
-                                            }
+                                                }
                                             }
                                             ?>
                                         </div>
