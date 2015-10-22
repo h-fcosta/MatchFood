@@ -37,7 +37,7 @@
                         <div class="wrapper">
                             <h1><a href="index.html">MatchFood</a></h1>
                             <ul class="pagination">
-                                <li class="current"><a href="images/bg-img1.jpg"></a></li>
+                                <li class="current"><a href="images/back_wood.jpg"></a></li>
                             </ul>
                         </div>
                     </div>
