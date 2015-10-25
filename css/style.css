@@ -18,6 +18,15 @@ body {font-family:Arial, Helvetica, sans-serif;font-size:100%;color:#4c4c4c;min-
 	position:relative;
 }
 
+.main-menu {
+	width:1300px; 	
+	padding-left: 150px;
+	margin:0 auto;
+	font-size:0.875em;
+	line-height:1.714em;
+	position:relative;
+}
+
 a {color:#ca4b00; outline:none;}
 a:hover {text-decoration:none;}
 

@@ -1,34 +1,23 @@
 <?php
-
 include("connect.php");
 
-/* Assume $link is already prepared as MySQL resource. */
-
-// search query split by spaces
-$user_input = 'carne batata';
-
-// create string for mysql_auery()
-
-
-/*$sql = 'SELECT * FROM receitas WHERE ';
-
-for ($i = 1; $i <= 10; $i++) {
-    $string = 'tag' . $i . " LIKE '%" . $user_input . "%' ";
-    if ($i > 1) {
-        $sql .= " or ";
-    }
-    $sql .= $string;
+if(isset($_SESSION['login'])){
+    header("Location: index.php");
 }
 
-echo mysqli_query($link, $sql);*/
-
-$sql = 'SELECT * FROM receitas WHERE ';
-foreach (array_filter(explode(" ", $user_input), 'strlen') as $keyword) {
-    for ($i = 1; $i <= 10; $i++) {
-        $where [] = 'tag' . $i . " LIKE '" . mysqli_escape_string($link, '%' . addcslashes($keyword, '%_\\') . '%') . "'";
-    }
-}
-
-$sql .= implode(" or ", $where);
-
-echo $sql;
+echo '<form action="login.php" method="post" name="login">
+        <table>
+        <tr>
+            <td>E-mail</td>
+            <td><input type="text" name="email" placeholder="Email"></td>
+        </tr>
+        <tr>
+            <td>Senha</td>
+            <td><input type="password" name="senha" placeholder="Senha"></td> 
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="submit" value="Entrar"></td>
+        </tr>
+        </table>
+      </form>   ';

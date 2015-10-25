@@ -14,6 +14,9 @@
         echo '<title>' . $titulo . '</title>';
         ?>
         <meta charset="utf-8">
+        
+        <link rel="icon" href="images/teste.png" type="image/png" >
+        
         <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen">
@@ -35,15 +38,17 @@
         <div class="extra">
             <!--==============================header=================================-->
             <header>
-                <div class="top-row">
+                <div class="top-row" align="center">
+                    <!--div align="center"-->
+                        <a href="index.php"><img src ="images/logo-1.png"></a>
+                    <!--/div>
                     <div class="main">
-                        <div class="wrapper">
-                            <h1><a href="index.html">MatchFood</a></h1>
+                        <div class="wrapper"-->
                             <ul class="pagination">
                                 <li class="current"><a href="images/back_wood.jpg"></a></li>
                             </ul>
-                        </div>
-                    </div>
+                        <!--/div>
+                    </div-->
                 </div>
                 <div class="menu-row">
                     <div class="menu-border">

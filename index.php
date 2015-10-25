@@ -5,6 +5,9 @@
     ?>
     <head>
         <title>MatchFood</title>
+        
+        <link rel="icon" href="images/teste.png" type="image/png" >
+        
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
@@ -22,7 +25,7 @@
         <script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
         <script src="js/tms-0.3.js" type="text/javascript"></script>
         <script src="js/tms_presets.js" type="text/javascript"></script>
-        
+
         <script src="scripts/js.js" type="text/javascript"></script>
     </head>
 
@@ -32,26 +35,50 @@
         <div class="extra">
             <!--==============================header=================================-->
             <header>
-                <div class="top-row">
+                <div class="top-row" align="center">
+                    <!--div align="center"-->
+                        <a href="index.php"><img src ="images/logo-1.png"></a>
+                    <!--/div>
                     <div class="main">
-                        <div class="wrapper">
-                            <h1><a href="index.html">MatchFood</a></h1>
+                        <div class="wrapper"-->
                             <ul class="pagination">
                                 <li class="current"><a href="images/back_wood.jpg"></a></li>
                             </ul>
-                        </div>
-                    </div>
+                        <!--/div>
+                    </div-->
                 </div>
                 <div class="menu-row">
                     <div class="menu-border">
-                        <div class="main">
+                        <div class="main-menu">
                             <nav>
                                 <ul class="menu">
-                                    <li><a class="active" href="index.html">Home</a></li>
-                                    <li><a href="sobre.html">Sobre Nós</a></li>
-                                    <li><a href="favoritos.html">Favoritos</a></li>
-                                    <li><a href="contato.html">Contato</a></li>
-                                    <li class="last"><a href="cadastro.html">Cadastre-se</a></li>
+                                    <li><a class="active" href="index.php">Home</a></li>
+                                    <li><a href="sobre.php">Sobre Nós</a></li>
+                                    <li><a href="favoritos.php">Favoritos</a></li>
+                                    <li><a href="contato.php">Contato</a></li>
+                                    <li><a href="cadastro.php">Cadastre-se </a></li>
+                                    <?php
+                                    @session_start();
+                                    @$status = $_SESSION['logado'];
+                                    if ($status != null) {
+                                        echo '<li><a href="logout.php">Bem vindo! Sair</a></li>';
+                                    } else {
+                                        echo '<li><a><form action="login.php" method="post" name="login">
+                                                <table>
+                                                    <tr>
+                                                        <td>E-mail
+                                                            <input type="text" name="email" style="width:105px;" placeholder="Email">
+                                                            Senha
+                                                            <input type="password" name="senha" style="width:105px;" placeholder="Senha">
+                                                            <input type="submit" name="submit" value="Entrar" style="visibility: hidden; width: 0px;">
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </form>
+                                        </a>
+                                    </li>';
+                                    }
+                                    ?>
                                 </ul>
                             </nav>
                         </div>
@@ -171,8 +198,7 @@
                     banners: 'fade',
                     pauseOnHover: true,
                     waitBannerAnimation: false,
-                    pagination: '.pags'
-                });
+                    pagination: '.pags'});
             });
         </script>
     </body>

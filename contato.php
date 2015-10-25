@@ -1,7 +1,7 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Resultado da sua busca</title>
+        <title></title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
@@ -28,7 +28,7 @@
             <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
             <![endif]-->
     </head>
-    <body id="page5">
+    <body id="page6">
         <div id="bgSlider"></div>
         <div class="bg_spinner"></div>
         <div class="extra">
@@ -39,7 +39,7 @@
                         <div class="wrapper">
                             <h1><a href="index.html">MatchFood</a></h1>
                             <ul class="pagination">
-                                <li class="current"><a href="images/bg-img1.jpg"></a></li>
+                                <li class="current"><a href="images/back_wood.jpg"></a></li>
                             </ul>
                         </div>
                     </div>
@@ -52,15 +52,15 @@
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="sobre.html">Sobre Nós</a></li>
                                     <li><a href="favoritos.html">Favoritos</a></li>
-                                    <li><a href="contato.html">Contato</a></li>
+                                    <li><a class="active" href="contato.html">Contato</a></li>
                                     <li class="last"><a href="cadastro.html">Cadastre-se</a></li>
-
                                 </ul>
                             </nav>
                         </div>
                     </div>
                 </div>
             </header>
+
             <!--==============================content================================-->
             <div class="inner">
                 <div class="main">
@@ -68,27 +68,57 @@
                         <div class="indent">
                             <div class="wrapper">
                                 <article class="col-1">
-                                    <div class="bg">
-                                        <div class="padding">
-                                            <h3 class="p2">O que procuro:</h3>
-                                            <div class="wrapper p3">
-                                                <figure class="img-indent"><img src="images/slider-img1.jpg" style="width:200px; height:166px;" " alt="" /></figure>
-                                                <div class="extra-wrap">
-                                                    <h6>Sua Lasanha</h6>
-                                                    <p class="p1">Lasanha de queijo e carne moída.</p>
-                                                    <a class="button-2" href="receita.html">Ver Receita</a>
-                                                </div>
-                                            </div>
-
+                                    <div class="indent-left">
+                                        <h3>Envie-nos um E-mail!</h3>
+                                        <div class="p3">
+                                            <form id="contact-form" method="post" enctype="multipart/form-data">                    
+                                                <fieldset>
+                                                    <label><span class="text-form">Nome:</span><input name="p1" type="text" /></label>
+                                                    <label><span class="text-form">E-mail:</span><input name="p2" type="text" /></label>                              
+                                                    <div class="wrapper">
+                                                        <div class="text-form">Mensagem:</div>
+                                                        <div class="extra-wrap">
+                                                            <textarea></textarea>
+                                                            <div class="clear"></div>
+                                                            <div class="buttons">
+                                                                <!--        <a class="button-2" href="#" onClick="document.getElementById('contact-form').reset()">Limpar</a>
+                                                                -->
+                                                                <a class="button-2" href="#" onClick="document.getElementById('contact-form').submit()">Enviar</a>
+                                                            </div> 
+                                                        </div>
+                                                    </div>                            
+                                                </fieldset>						
+                                            </form>
                                         </div>
                                     </div>
                                 </article>
-                                <p>
-                                <form action="busca.php" method="post">
-                                    <input type="text" name="term" placeholder="queijo, carne moída, massa" /><br />
-                                    <input type="submit" name="submit" value="Match!" />
-                                </form>
-                                </p>
+                                <article class="col-2">
+                                    <h3 class="border-bot indent-bot">Nosso Contato</h3>
+                                    <div class="img-indent-bot">
+                                        <h6>SÃO PAULO</h6>
+                                        <dl>
+                                            <dt>Rua Linda com Flores, nº 123 <br> Centro - Campinas.</dt>
+                                            <dd><span>E-mail:</span><a href="#">natalia@matchfood.com</a></dd>
+                                        </dl>
+                                    </div>
+                                    <div class="img-indent-bot">
+                                        <h6>PARANÁ</h6>
+                                        <dl>
+                                            <dt>Rua Doida dos Heróis, nº456 <br> Centro - Curitiba.</dt>
+                                            <dd><span>E-mail:</span><a href="#">rique@matchfood.com</a></dd>
+                                        </dl>
+                                    </div>
+
+                                    <!-- 
+                                    <h6>Japan</h6>
+                                    <dl>
+                                        <dt>8901 Marmora Road, Glasgow, D04</dt>
+                                        <dd><span>Telephone:</span>  +1 959 603 6035</dd>
+                                        <dd><span>FAX:</span>  +1 504 889 9898</dd>
+                                        <dd><span>E-mail:</span><a href="#">mail@thomsander.com</a></dd>
+                                    </dl>
+                                    -->
+                                </article>
                             </div>
                         </div>
                     </section>
