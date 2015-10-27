@@ -4,11 +4,21 @@ include 'connect.php';
 ?>
 <html lang="en">
     <head>
-        <title>Seus Favoritos</title>
-        
+        <title>MatchFood - Seus Favoritos</title>
+
         <link rel="icon" href="images/teste.png" type="image/png" >
-        
+
         <meta charset="utf-8">
+        
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        
         <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen">
@@ -22,6 +32,7 @@ include 'connect.php';
         <script src="js/easyTooltip.js" type="text/javascript"></script>
         <script src="js/script.js" type="text/javascript"></script>
         <script src="js/bgSlider.js" type="text/javascript"></script>
+
         <!--[if lt IE 7]>
     <div style=' clear: both; text-align:center; position: relative;'>
         <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
@@ -42,51 +53,55 @@ include 'connect.php';
             <header>
                 <div class="top-row" align="center">
                     <!--div align="center"-->
-                        <a href="index.php"><img src ="images/logo-1.png"></a>
+                    <a href="index.php"><img src ="images/logo-1.png"></a>
                     <!--/div>
                     <div class="main">
                         <div class="wrapper"-->
-                            <ul class="pagination">
-                                <li class="current"><a href="images/back_wood.jpg"></a></li>
-                            </ul>
-                        <!--/div>
-                    </div-->
+                    <ul class="pagination">
+                        <li class="current" style="visibility: hidden;"><a href="images/back_wood.jpg"></a></li>
+                    </ul>
+                    <!--/div>
+                </div-->
                 </div>
                 <div class="menu-row">
                     <div class="menu-border">
-                        <div class="main">
+                        <?php
+                        @session_start();
+                        @$status = $_SESSION['logado'];
+
+                        if ($status != null) {
+                            echo'<div class="main-menu-log">
                             <nav>
                                 <ul class="menu">
-                                    <li><a class="active" href="index.php">Home</a></li>
+                                    <li><a href="index.php">Home</a></li>
                                     <li><a href="sobre.php">Sobre Nós</a></li>
-                                    <li><a href="favoritos.php">Favoritos</a></li>
                                     <li><a href="contato.php">Contato</a></li>
-                                    <li><a href="cadastro.php">Cadastre-se </a></li>
-                                    <?php
-                                    @session_start();
-                                    @$status = $_SESSION['logado'];
-                                    if ($status != null) {
-                                        echo '<li><a href="logout.php">Bem vindo! Sair</a></li>';
-                                    } else {
-                                        echo '<li><a><form action="login.php" method="post" name="login">
-                                                <table>
+                                    <li><a class="active" href="favoritos.php">Favoritos</a></li>
+                                    <li><a href="logout.php">Bem vindo! Sair</a></li>';
+                        } else {
+                            echo '<div class="main-menu">
+                        <nav>
+                            <ul class="menu">
+                                <li><a href="index.php">Home</a></li>
+                                <li><a href="sobre.php">Sobre Nós</a></li>
+                                <li><a href="contato.php">Contato</a></li>
+                                <li><a href="cadastro.php">Cadastre-se </a></li>
+                                              <li><form action="login.php" method="post" name="login">
+                                                <table class="tabela">
                                                     <tr>
-                                                        <td>E-mail
-                                                            <input type="text" name="email" style="width:105px;" placeholder="Email">
-                                                            Senha
-                                                            <input type="password" name="senha" style="width:105px;" placeholder="Senha">
+                                                        <td>
+                                                            <input class="form-control login" type="text" name="email" placeholder="Email">
+                                                        </td>
+                                                        <td>
+                                                            <input class="form-control login" type="password" name="senha" placeholder="Senha">
                                                             <input type="submit" name="submit" value="Entrar" style="visibility: hidden; width: 0px;">
                                                         </td>
                                                     </tr>
                                                 </table>
                                             </form>
-                                        </a>
                                     </li>';
-                                    }
-                                    ?>
-                                </ul>
-                            </nav>
-                        </div>
+                        }
+                            ?>
                     </div>
                 </div>
             </header>

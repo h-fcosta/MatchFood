@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title></title>
+        <title>MatchFood - Contato</title>
         <meta charset="utf-8">
+        
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        
         <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen">
@@ -34,29 +44,57 @@
         <div class="extra">
             <!--==============================header=================================-->
             <header>
-                <div class="top-row">
+                <div class="top-row" align="center">
+                    <!--div align="center"-->
+                        <a href="index.php"><img src ="images/logo-1.png"></a>
+                    <!--/div>
                     <div class="main">
-                        <div class="wrapper">
-                            <h1><a href="index.html">MatchFood</a></h1>
+                        <div class="wrapper"-->
                             <ul class="pagination">
-                                <li class="current"><a href="images/back_wood.jpg"></a></li>
+                                <li class="current" style="visibility: hidden;"><a href="images/back_wood.jpg"></a></li>
                             </ul>
-                        </div>
-                    </div>
+                        <!--/div>
+                    </div-->
                 </div>
                 <div class="menu-row">
                     <div class="menu-border">
-                        <div class="main">
+                        <?php
+                        @session_start();
+                        @$status = $_SESSION['logado'];
+
+                        if ($status != null) {
+                            echo'<div class="main-menu-log">
                             <nav>
                                 <ul class="menu">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="sobre.html">Sobre Nós</a></li>
-                                    <li><a href="favoritos.html">Favoritos</a></li>
-                                    <li><a class="active" href="contato.html">Contato</a></li>
-                                    <li class="last"><a href="cadastro.html">Cadastre-se</a></li>
-                                </ul>
-                            </nav>
-                        </div>
+                                    <li><a href="index.php">Home</a></li>
+                                    <li><a href="sobre.php">Sobre Nós</a></li>
+                                    <li><a class="active" href="contato.php">Contato</a></li>
+                                    <li><a href="favoritos.php">Favoritos</a></li>
+                                    <li><a href="logout.php">Bem vindo! Sair</a></li>';
+                        } else {
+                            echo '<div class="main-menu">
+                        <nav>
+                            <ul class="menu">
+                                <li><a href="index.php">Home</a></li>
+                                <li><a href="sobre.php">Sobre Nós</a></li>
+                                <li><a class="active" href="contato.php">Contato</a></li>
+                                <li><a href="cadastro.php">Cadastre-se </a></li>
+                                              <li><form action="login.php" method="post" name="login">
+                                                <table class="tabela">
+                                                    <tr>
+                                                        <td>
+                                                            <input class="form-control login" type="text" name="email" placeholder="Email">
+                                                        </td>
+                                                        <td>
+                                                            <input class="form-control login" type="password" name="senha" placeholder="Senha">
+                                                            <input type="submit" name="submit" value="Entrar" style="visibility: hidden; width: 0px;">
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </form>
+                                    </li>';
+                        }
+                        ?>
                     </div>
                 </div>
             </header>

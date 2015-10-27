@@ -11,9 +11,18 @@
             $titulo = $title['NomeRec'];
         }
 
-        echo '<title>' . $titulo . '</title>';
+        echo '<title>MatchFood - ' . $titulo . '</title>';
         ?>
         <meta charset="utf-8">
+        
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         
         <link rel="icon" href="images/teste.png" type="image/png" >
         
@@ -45,24 +54,50 @@
                     <div class="main">
                         <div class="wrapper"-->
                             <ul class="pagination">
-                                <li class="current"><a href="images/back_wood.jpg"></a></li>
+                                <li class="current" style="visibility: hidden;"><a href="images/back_wood.jpg"></a></li>
                             </ul>
                         <!--/div>
                     </div-->
                 </div>
                 <div class="menu-row">
                     <div class="menu-border">
-                        <div class="main">
+                        <?php
+                        @session_start();
+                        @$status = $_SESSION['logado'];
+
+                        if ($status != null) {
+                            echo'<div class="main-menu-log">
                             <nav>
                                 <ul class="menu">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="sobre.html">Sobre Nós</a></li>
-                                    <li><a href="favoritos.html">Favoritos</a></li>
-                                    <li><a href="contato.html">Contato</a></li>
-                                    <li class="last"><a href="cadastro.html">Cadastre-se</a></li>
-                                </ul>
-                            </nav>
-                        </div>
+                                    <li><a href="index.php">Home</a></li>
+                                    <li><a href="sobre.php">Sobre Nós</a></li>
+                                    <li><a href="contato.php">Contato</a></li>
+                                    <li><a href="favoritos.php">Favoritos</a></li>
+                                    <li><a href="logout.php">Bem vindo! Sair</a></li>';
+                        } else {
+                            echo '<div class="main-menu">
+                        <nav>
+                            <ul class="menu">
+                                <li><a href="index.php">Home</a></li>
+                                <li><a href="sobre.php">Sobre Nós</a></li>
+                                <li><a href="contato.php">Contato</a></li>
+                                <li><a href="cadastro.php">Cadastre-se </a></li>
+                                              <li><form action="login.php" method="post" name="login">
+                                                <table class="tabela">
+                                                    <tr>
+                                                        <td>
+                                                            <input class="form-control login" type="text" name="email" placeholder="Email">
+                                                        </td>
+                                                        <td>
+                                                            <input class="form-control login" type="password" name="senha" placeholder="Senha">
+                                                            <input type="submit" name="submit" value="Entrar" style="visibility: hidden; width: 0px;">
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </form>
+                                    </li>';
+                        }
+                            ?>
                     </div>
                 </div>
             </header>
@@ -95,41 +130,12 @@
                                         </div>
 
                                         <h6>INGREDIENTES: </h6></p>
-                                        <p>' . $ingredientes .
-                                        /* - 500 g de massa de lasanha
-                                          <br>- 500 g de carne moida
-                                          <br>- 2 caixas creme de leite
-                                          <br>- 2 ou 3 colheres de manteiga
-                                          <br>- 2 a 3 colheres de farinha de trigo
-                                          <br>- 500 g de presunto
-                                          <br>- 500 g de mussarela
-                                          <br>- Sal a gosto
-                                          <br>- 2 copos de leite (mais ou menos)
-                                          <br>- 1 cebola ralada
-                                          <br>- 3 colheres de óleo
-                                          <br>- 3 dentinhos de alho amassados
-                                          <br>- 1 pacotinho de queijo ralado */ ' 
-                                        </p>
+                                        <p>' . $ingredientes .'</p>
                                     </div>
                                     <div class="bg">
                                         <div class="padding">
                                             <h3>Modo de Preparo:</h3>
-                                            <p align="justify" class="p1">'
-                                        . $modo .
-                                        /* <b>1.</b> Cozinhe massa al dente, após cozido passe um pouco de manteiga para que não grude (reserve).
-                                          <br><b>2.</b> Existem massas que não precisam de cozimento
-
-                                          <br><br><b>Molho à bolonhesa:</b>
-                                          <br><b>1.</b> Refogue o alho, a cebola, a carne moída, depois acrescente o molho de tomate, deixe cozinhar por 3 minutos, reserve.
-
-                                          <br><br><b>Molho branco:</b>
-                                          <br><b>1.</b> Derreta a margarina, coloque as 3 colheres de farinha de trigo e mexa.
-                                          <br><b>2.</b> Depois coloque o leite aos poucos e continue mexendo, por último coloque o creme de leite e dê mais uma mexida e desligue.
-
-                                          <br><br><b>Montagem:</b>
-                                          <br><b>1.</b> Em uma forma coloque no fundo um pouco de molho à bolonhesa, a metade da massa, a metade do presunto, a metade da mussarela, todo o molho branco, o restante do massa, o restante do presunto, o restante da mussarela, o restante do molho à bolonhesa e por último salpique com queijo ralado.
-                                          <br><b>2.</b> Levar ao forno para gratinar e depois é só saborear. Hmmm! */' 
-                                            </p>
+                                            <p align="justify" class="p1">'. $modo .'</p>
                                             <div class="wrapper">
                                             </div>
                                         </div>
