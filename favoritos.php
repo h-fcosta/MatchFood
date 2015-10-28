@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 include 'connect.php';
+include 'sessao.php';
 ?>
 <html lang="en">
     <head>
@@ -9,7 +10,7 @@ include 'connect.php';
         <link rel="icon" href="images/teste.png" type="image/png" >
 
         <meta charset="utf-8">
-        
+
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
@@ -18,7 +19,7 @@ include 'connect.php';
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        
+
         <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen">
@@ -66,8 +67,8 @@ include 'connect.php';
                 <div class="menu-row">
                     <div class="menu-border">
                         <?php
-                        @session_start();
-                        @$status = $_SESSION['logado'];
+                        /*@session_start();
+                        @$status = $_SESSION['logado'];*/
 
                         if ($status != null) {
                             echo'<div class="main-menu-log">
@@ -101,7 +102,7 @@ include 'connect.php';
                                             </form>
                                     </li>';
                         }
-                            ?>
+                        ?>
                     </div>
                 </div>
             </header>
@@ -114,10 +115,12 @@ include 'connect.php';
                                 <article class="col-1">
                                     <div class="bg">
                                         <?php
-                                        include 'sessao.php';
+                                        
 
-                                        if ($status != null) {
-                                            $query_fav = mysqli_query($link, "SELECT receitas.idReceitas, receitas.Foto, receitas.NomeRec, receitas.Tipo, receitas.Origem from Receitas join Favoritos on favoritos.receitas_idreceitas = receitas.idReceitas where favoritos.usuario_idusuario = $loginSession;");
+                                        $query_fav = mysqli_query($link, "SELECT receitas.idReceitas, receitas.Foto, receitas.NomeRec, receitas.Tipo, receitas.Origem from Receitas join Favoritos on favoritos.receitas_idreceitas = receitas.idReceitas where favoritos.usuario_idusuario = $loginSession;");
+                                        $num = mysqli_num_rows($query_fav);
+
+                                        if ($num > 0) {
 
                                             echo '<div class="padding">
                                             <h3 class="p2">Seus Favoritos:</h3>';
@@ -135,40 +138,30 @@ include 'connect.php';
                                             }
                                             echo '</div>';
                                         } else {
-                                            echo '<h2>Cadastre-se no nosso site para salvar suas receitas favoritas</h2>';
-                                        }
-                                        ?>
-
-                                        <!--div class="padding">
+                                            echo '<div class="padding">
                                             <h3 class="p2">Seus Favoritos:</h3>
                                             <div class="wrapper p3">
-                                                <figure class="img-indent"><img src="images/slider-img1.jpg" style="width:200px; height:166px;" " alt="" /></figure>
                                                 <div class="extra-wrap">
-                                                    <h6>Sua Lasanha</h6>
-                                                    <p class="p1">Lasanha de queijo e carne moída.</p>
-                                                    <a class="button-2" href="receita.html">Ver Receita</a>
+                                                    Tá esperando o que? Desbrave o site e salve suas receitas favoritas AGORA!
                                                 </div>
-                                            </div>
-                                            <div class="wrapper p3">
-                                                <figure class="img-indent"><img src="images/page5-img2.jpg" alt="" /></figure>
-                                                <div class="extra-wrap">
-                                                    <h6>Teste</h6>
-                                                    <p class="p1">Um rango qualquer.</p>
-                                                    <a class="button-2" href="#">Ver Receita</a>
-                                                </div>
-                                            </div>
-                                            <div class="wrapper img-indent-bot">
-                                                <figure class="img-indent"><img src="images/page5-img3.jpg" alt="" /></figure>
-                                                <div class="extra-wrap">
-                                                    <h6>Torta Francesa</h6>
-                                                    <p class="p1">Uma suculenta torta francesa com frutas vermelhas.</p>
-                                                    <a class="button-2" href="#">Ver Receita</a>
-                                                </div>
-                                            </div>
-                                        </div-->
+                                            </div>                                           
+                                            </div>';
+                                        }
+                                        ?>
                                     </div>
                                 </article>
-
+                                <article class="col-2">
+                                    <p>
+                                    <form action="pesquisa.php" method="get">
+                                        <table class="table">
+                                            <tr>
+                                                <td><input class="form-control" type="text" name="s" placeholder="Pesquisar" style="width: 134px;"/></td>
+                                                <td><input class="form-control button-3" type="submit" name="submit" value="Match!"/></td>
+                                            </tr>
+                                        </table>
+                                    </form>
+                                    </p>
+                                </article>
                             </div>
                         </div>
                     </section>

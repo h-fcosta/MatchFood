@@ -1,6 +1,8 @@
 <?php
 
 include("connect.php");
+session_start();
+@$status = $_SESSION['logado'];
 
 if ($status != null) {
     $user_check = $_SESSION['login_user'];

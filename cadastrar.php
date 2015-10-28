@@ -2,7 +2,7 @@
 include ("connect.php");
 
 if($link != null){
-    $nome = $_POST['nome'];
+    $nome = utf8_decode($_POST['nome']);
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     $senhaRep = $_POST['senhaRep'];
@@ -17,6 +17,7 @@ if($link != null){
             echo '<script type="text/javascript">alert("'.mysqli_error($link).'");</script>';
         }else{
             echo '<script type="text/javascript">alert("sucesso");</script>';
+            header("location: index.php");
         }
         
     }else{

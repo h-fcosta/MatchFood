@@ -148,7 +148,7 @@
                                     </div>
                                 </article>
                                 <article class="col-2">
-                                    <h3 class="border-bot">Comentários</h3>
+                                    <!--h3 class="border-bot">Comentários</h3>
                                     <blockquote>Muito bom! Não precisa de muita força para cozinhar, MatchFood facilitou bastante.</blockquote>
                                     <div class="alignright img-indent-bot">
                                         <strong class="color-3">Thor</strong>
@@ -164,7 +164,7 @@
                                     <blockquote>Posso cozinhar a qualquer momento, usando as minhs receitas offline. Seja no escuro ou não.</blockquote>
                                     <div class="alignright">
                                         <strong class="color-3">Batman</strong>
-                                    </div>
+                                    </div-->
                                 </article>
                             </div>
                         </div>

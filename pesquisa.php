@@ -9,7 +9,7 @@
         <title>MatchFood - Resultado da sua busca</title>
 
         <link rel="icon" href="images/teste.png" type="image/png" >
-        
+
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
@@ -148,12 +148,18 @@
                                         </div>
                                     </div>
                                 </article>
-                                <p>
-                                <form action="pesquisa.php" method="get">
-                                    <input type="text" name="s" placeholder="Pesquisar" style="width: 150px;" />
-                                    <input type="submit" name="submit" value="Match!" class="button-3"/>
-                                </form>
-                                </p>
+                                <article class="col-2">
+                                    <p>
+                                    <form action="pesquisa.php" method="get">
+                                        <table class="table">
+                                            <tr>
+                                                <td><input class="form-control" type="text" name="s" placeholder="Pesquisar" style="width: 134px;"/></td>
+                                                <td><input class="form-control button-3" type="submit" name="submit" value="Match!"/></td>
+                                            </tr>
+                                        </table>
+                                    </form>
+                                    </p>
+                                </article>
                             </div>
                         </div>
                     </section>

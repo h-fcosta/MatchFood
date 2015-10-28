@@ -168,9 +168,13 @@
                                 <h3>Procure Aqui</h3>
                                 <p>
                                 <form action="pesquisa.php" method="get">
-                                    <input type="text" placeholder="Pesquisar" name="s" onkeypress="VerificaTecla()"/>
-                                    <input type="submit" name="submit" value="Match!" class="button-3"/>
-                                </form>
+                                        <table class="table">
+                                            <tr>
+                                                <td><input class="form-control" type="text" name="s" placeholder="Pesquisar" style="width: 134px;"/></td>
+                                                <td><input class="form-control button-3" type="submit" name="submit" value="Match!"/></td>
+                                            </tr>
+                                        </table>
+                                    </form>
                                 </p>
                             </article>
                         </div>

@@ -7,6 +7,7 @@ session_start();
 if (isset($_POST['submit'])) {
     if (empty($_POST['email']) || empty($_POST['senha'])) {
         $erro = "Campos obrigatórios";
+        echo $erro;
     } else {
         $email = $_POST['email'];
         $senha = $_POST['senha'];
@@ -17,7 +18,9 @@ if (isset($_POST['submit'])) {
         $email=  mysqli_escape_string($link, $email);
         $senha = mysqli_escape_string($link, $senha);
         
-        $query=  mysqli_query($link, "SELECT idUsuario, Email, Senha FROM usuario WHERE Email='$email' AND Senha='$senha'");
+        $senhaEnc = hash('sha512', $senha);
+        
+        $query=  mysqli_query($link, "SELECT idUsuario, Email, Senha FROM usuario WHERE Email='$email' AND Senha='$senhaEnc'");
         
         $num=  mysqli_num_rows($query);
         

@@ -2,6 +2,7 @@
 <html lang="en">
     <?php
     include ("connect.php");
+    include ("./sessao.php");
     ?>
     <head>
         <?php
@@ -14,7 +15,7 @@
         echo '<title>MatchFood - ' . $titulo . '</title>';
         ?>
         <meta charset="utf-8">
-        
+
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
@@ -23,9 +24,9 @@
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        
+
         <link rel="icon" href="images/teste.png" type="image/png" >
-        
+
         <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen">
@@ -49,15 +50,15 @@
             <header>
                 <div class="top-row" align="center">
                     <!--div align="center"-->
-                        <a href="index.php"><img src ="images/logo-1.png"></a>
+                    <a href="index.php"><img src ="images/logo-1.png"></a>
                     <!--/div>
                     <div class="main">
                         <div class="wrapper"-->
-                            <ul class="pagination">
-                                <li class="current" style="visibility: hidden;"><a href="images/back_wood.jpg"></a></li>
-                            </ul>
-                        <!--/div>
-                    </div-->
+                    <ul class="pagination">
+                        <li class="current" style="visibility: hidden;"><a href="images/back_wood.jpg"></a></li>
+                    </ul>
+                    <!--/div>
+                </div-->
                 </div>
                 <div class="menu-row">
                     <div class="menu-border">
@@ -97,7 +98,7 @@
                                             </form>
                                     </li>';
                         }
-                            ?>
+                        ?>
                     </div>
                 </div>
             </header>
@@ -130,12 +131,12 @@
                                         </div>
 
                                         <h6>INGREDIENTES: </h6></p>
-                                        <p>' . $ingredientes .'</p>
+                                        <p>' . $ingredientes . '</p>
                                     </div>
                                     <div class="bg">
                                         <div class="padding">
                                             <h3>Modo de Preparo:</h3>
-                                            <p align="justify" class="p1">'. $modo .'</p>
+                                            <p align="justify" class="p1">' . $modo . '</p>
                                             <div class="wrapper">
                                             </div>
                                         </div>
@@ -144,9 +145,13 @@
                                 <article class="col-2">
                                 <p>
                                 <form action="pesquisa.php" method="get">
-                                    <input type="text" name="s" placeholder="Pesquisar" style="width: 150px;"/>
-                                    <input type="submit" name="submit" value="Match!" class="button-3"/>
-                                </form>
+                                        <table class="table">
+                                            <tr>
+                                                <td><input class="form-control" type="text" name="s" placeholder="Pesquisar" style="width: 134px;"/></td>
+                                                <td><input class="form-control button-3" type="submit" name="submit" value="Match!"/></td>
+                                            </tr>
+                                        </table>
+                                    </form>
                                 </p>
                                     <h3 class="border-bot">Informações:</h3>
 
@@ -166,9 +171,18 @@
                                         <strong class="color-3">Italiana, lasanha, carne moída, queijo, massa </strong>
                                     </div>';
                                         ?>
-                                </article>
+                                        <br>
+                                        <?php
+                                        
+                                        if ($status != null) {
+                                            echo'<a href="favoritar.php?id='.$idT.'&idUser='.$loginSession.'">Add Favoritos</a>';
+                                        }else{
+                                            echo '<a href="cadastro.php">Cadastre-se</a> agora e adicione essa receita nos seus favoritos!';
+                                        }
+                                        ?>
+                                        </article>
+                                    </div>
                             </div>
-                        </div>
                     </section>
                     <div class="block"></div>
                 </div>

@@ -4,6 +4,7 @@ include("connect.php");
 if(isset($_SESSION['login'])){
     header("Location: index.php");
 }
+echo hash('sha512', 'admin');
 
 echo '<form action="login.php" method="post" name="login">
         <table>
