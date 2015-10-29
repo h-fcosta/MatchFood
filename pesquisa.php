@@ -121,6 +121,32 @@
                                             if ($cons == "") {
                                                 echo '<h2>Busca inválida. Tente novamente.</h2>';
                                             } else {
+                                                $count = mysqli_query($link, "SELECT COUNT(idReceitas) FROM receitas");
+                                                $row = mysqli_fetch_row($count);
+                                                $rows = $row[0];
+                                                $page_rows = 10;
+
+                                                $ult = ceil($rows / $page_rows);
+
+                                                if ($ult < 1) {
+                                                    $ult = 1;
+                                                }
+
+                                                $pageNum = 1;
+
+                                                if (isset($_GET['p'])) {
+                                                    $pageNum = preg_replace('#[^0-9]#', '', $_GET['p']);
+                                                }
+
+                                                if ($pageNum < 1) {
+                                                    $pageNum = 1;
+                                                } else
+                                                if ($pageNum > $ult) {
+                                                    $pageNum = $ult;
+                                                }
+
+                                                $limite = ' LIMIT ' . ($pageNum - 1) * $page_rows . ',' . $page_rows;
+
                                                 $sql = 'SELECT * FROM receitas WHERE ';
                                                 foreach (array_filter(explode(" ", $cons), 'strlen') as $keyword) {
                                                     for ($i = 1; $i <= 10; $i++) {
@@ -130,19 +156,60 @@
 
                                                 $sql .= implode(" or ", $where);
 
+                                                $sql .= $limite;
+
                                                 $query = mysqli_query($link, $sql);
 
+                                                $primPag = "";
+                                                $pags = "Página $pageNum de $ult";
+
+                                                $paginationCtrls = '';
+
+                                                if ($ult != 1) {
+                                                    if ($pageNum > 1) {
+                                                        $anterior = $pageNum - 1;
+                                                        $paginationCtrls .= '<a href="pesquisa.php?s=' . $cons . '&p=' . $anterior . '">Anterior</a>  ';
+                                                        for ($i = $pageNum - 4; $i < $pageNum; $i++) {
+                                                            if ($i > 0) {
+                                                                $paginationCtrls .= '<a href="pesquisa.php?s=' . $cons . '&p=' . $i . '"> ' . $i . ' </a>';
+                                                            }
+                                                        }
+                                                    }
+                                                    $paginationCtrls .= '' . $pageNum . ' ';
+                                                    for ($i = $pageNum + 1; $i <= $ult; $i++) {
+                                                        $paginationCtrls .= '<a href="pesquisa.php?s=' . $cons . '&p=' . $i . '"> ' . $i . ' </a>';
+                                                        if ($i >= $pageNum + 4) {
+                                                            break;
+                                                        }
+                                                    }
+
+                                                    if ($pageNum != $ult) {
+                                                        $prox = $pageNum + 1;
+                                                        $paginationCtrls .= '  <a href="pesquisa.php?s=' . $cons . '&p=' . $prox . '">Próximo</a>';
+                                                    }
+                                                }
+
                                                 while ($info = mysqli_fetch_assoc($query)) {
+                                                    $idRec = $info['idReceitas'];
+                                                    $foto = $info['Foto'];
+                                                    $nome = $info['NomeRec'];
+                                                    $tipo = $info['Tipo'];
+                                                    $origem = $info['Origem'];
+
                                                     echo '<div class="wrapper p3">
-                                                <figure class="img-indent"><img src="' . $info['Foto'] . '" style="width:200px; height:166px;" alt="" /></figure>
+                                                <figure class="img-indent"><img src="' . $foto . '" style="width:200px; height:166px;" alt="" /></figure>
                                                 <div class="extra-wrap">
-                                                    <h6>' . $info['NomeRec'] . '</h6>
-                                                    <p class="p1">' . $info['Tipo'] . '<br>
-                                                        ' . $info['Origem'] . '</p>
-                                                    <a class="button-2" href="receita.php?id=' . $info['idReceitas'] . '">Ver Receita</a>
+                                                    <h6>' . $nome . '</h6>
+                                                    <p class="p1">' . $tipo . '<br>
+                                                        ' . $origem . '</p>
+                                                    <a class="button-2" href="receita.php?id=' . $idRec . '">Ver Receita</a>
                                                 </div>
                                             </div>';
                                                 }
+                                                echo '<div align="center">
+                                                        ' . $paginationCtrls . '
+                                                            <h2>' . $pags . '</h2>
+                                                 </div>';
                                             }
                                             ?>
                                         </div>
@@ -190,16 +257,16 @@
         <script type="text/javascript"> Cufon.now();</script>
         <script type="text/javascript">
             $(window).load(function () {
-                $('.slider')._TMS({
-                    duration: 1000,
-                    easing: 'easeOutQuart',
-                    preset: 'simpleFade',
-                    slideshow: 10000,
-                    banners: 'fade',
-                    pauseOnHover: true,
-                    waitBannerAnimation: false,
-                    pagination: '.pags'
-                });
+$('.slider')._TMS({
+    duration: 1000,
+        easing: 'easeOutQuart',
+        preset: 'simpleFade',
+        slideshow: 10000,
+        banners: 'fade',
+        pauseOnHover: true,
+        waitBannerAnimation: false,
+        pagination: '.pags'
+        });
             });
         </script>
     </body>

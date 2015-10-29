@@ -2,7 +2,7 @@
 <html lang="en">
     <?php
     include ("connect.php");
-    include ("./sessao.php");
+    include ("sessao.php");
     ?>
     <head>
         <?php
