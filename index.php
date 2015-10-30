@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <?php
-    include ("connect.php");
-    
+    include ("actions/connect.php");
     ?>
     <head>
         <title>MatchFood</title>
@@ -10,7 +9,7 @@
         <link rel="icon" href="images/teste.png" type="image/png" >
 
         <meta charset="utf-8">
-        
+
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
@@ -19,7 +18,7 @@
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        
+
         <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen">
@@ -36,7 +35,6 @@
         <script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
         <script src="js/tms-0.3.js" type="text/javascript"></script>
         <script src="js/tms_presets.js" type="text/javascript"></script>
-
     </head>
 
     <body id="page1">
@@ -71,7 +69,7 @@
                                     <li><a href="sobre.php">Sobre Nós</a></li>
                                     <li><a href="contato.php">Contato</a></li>
                                     <li><a href="favoritos.php">Favoritos</a></li>
-                                    <li><a href="logout.php">Bem vindo! Sair</a></li>';
+                                    <li><a href="actions/logout.php">Bem vindo! Sair</a></li>';
                         } else {
                             echo '<div class="main-menu">
                         <nav>
@@ -80,7 +78,7 @@
                                 <li><a href="sobre.php">Sobre Nós</a></li>
                                 <li><a href="contato.php">Contato</a></li>
                                 <li><a href="cadastro.php">Cadastre-se </a></li>
-                                              <li><form action="login.php" method="post" name="login">
+                                              <li><form action="actions/login.php" method="post" name="login">
                                                 <table class="tabela">
                                                     <tr>
                                                         <td>
@@ -95,7 +93,7 @@
                                             </form>
                                     </li>';
                         }
-                            ?>
+                        ?>
                         </ul>
                         </nav>
                     </div>
@@ -116,7 +114,7 @@
                                     <strong>Sua</strong><em>Lasanha</em>
                                 </strong>
                                 <p class="p3">Uma deliciosa receita de lasanha.</p>
-                                <a class="button-1" href="receita.html">Leia mais</a>
+                                <a class="btn button-1" href="receita.html">Leia mais</a>
                             </div>
                         </li>
                         <li>
@@ -126,7 +124,7 @@
                                     <strong>Seu</strong><em>Shimeji</em>
                                 </strong>
                                 <p>Um shimeji muito bem temperado na manteiga.</p>
-                                <a class="button-1" href="#">Leia mais</a>
+                                <a class="btn button-1" href="#">Leia mais</a>
                             </div>
                         </li>
                         <li>
@@ -136,7 +134,7 @@
                                     <strong>Risoto</strong><em>Limao</em>
                                 </strong>
                                 <p>Risoto de limão siliciano, parece bom, não? É maravilhoso.</p>
-                                <a class="button-1" href="#">Leia mais</a>
+                                <a class=" btn button-1" href="#">Leia mais</a>
                             </div>
                         </li>
                     </ul>
@@ -154,27 +152,27 @@
                                 <h3>Veggie</h3>
                                 <p align="justify">Se você é vegetariano e quer pesquisar por diversas receitas vegetarianas, é só pesquisar pela tag "veggie", sabia? Quer ver? É fácil e rápido.</p>
                                 <div class="relative">
-                                    <a class="button-2" href="#">Clique Aqui</a>
+                                    <a class="btn button-2" href="#">Clique Aqui</a>
                                 </div>
                             </article>
                             <article class="col-1">
                                 <h3>Geek Fast Food</h3>
                                 <p align="justify">Sabe aquele seu super herói favorito? Agora ele pode ser seu burguer favorito também! Venha ver na Hamburgueria do Super o sabor delicioso do seu herói.</p>
                                 <div class="relative">
-                                    <a class="button-2" href="http://www.hamburgueriadosuper.com.br/" target="_blank">Clique Aqui</a>
+                                    <a class="btn button-2" href="http://www.hamburgueriadosuper.com.br/" target="_blank">Clique Aqui</a>
                                 </div>
                             </article>
                             <article class="col-2">
                                 <h3>Procure Aqui</h3>
                                 <p>
                                 <form action="pesquisa.php" method="get">
-                                        <table class="table">
-                                            <tr>
-                                                <td><input class="form-control" type="text" name="s" placeholder="Pesquisar" style="width: 134px;"/></td>
-                                                <td><input class="form-control button-3" type="submit" name="submit" value="Match!"/></td>
-                                            </tr>
-                                        </table>
-                                    </form>
+                                    <table class="table">
+                                        <tr>
+                                            <td><input class="form-control" type="text" name="s" placeholder="Pesquisar" style="width: 134px;"/></td>
+                                            <td><input class="form-control button-3" type="submit" name="submit" value="Match!"/></td>
+                                        </tr>
+                                    </table>
+                                </form>
                                 </p>
                             </article>
                         </div>

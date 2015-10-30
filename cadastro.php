@@ -71,7 +71,7 @@
                                 <li><a class="active" href="sobre.php">Sobre Nós</a></li>
                                 <li><a href="contato.php">Contato</a></li>
                                 <li><a href="cadastro.php">Cadastre-se </a></li>
-                                              <li><form action="login.php" method="post" name="login">
+                                              <li><form action="actions/login.php" method="post" name="login">
                                                 <table class="tabela">
                                                     <tr>
                                                         <td>
@@ -109,7 +109,7 @@
                                     </div-->
                                     <div class="bg">
                                         <div class="padding">
-                                            <form action="cadastrar.php" method="post" name="cadastro">
+                                            <form action="actions/cadastrar.php" method="post" name="cadastro">
                                                 <p align="justify"><h3>Cadastro</h3>
                                                 <table class="table table-condensed">
                                                     <tr>

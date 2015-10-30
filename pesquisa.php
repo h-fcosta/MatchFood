@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
     <?php
-    include ("connect.php");
+    include ("actions/connect.php");
 
     @$cons = $_GET['s'];
     ?>
@@ -79,7 +79,7 @@
                                     <li><a href="sobre.php">Sobre Nós</a></li>
                                     <li><a href="contato.php">Contato</a></li>
                                     <li><a href="favoritos.php">Favoritos</a></li>
-                                    <li><a href="logout.php">Bem vindo! Sair</a></li>';
+                                    <li><a href="actions/logout.php">Bem vindo! Sair</a></li>';
                     } else {
                         echo '<div class="main-menu">
                         <nav>
@@ -88,7 +88,7 @@
                                 <li><a href="sobre.php">Sobre Nós</a></li>
                                 <li><a href="contato.php">Contato</a></li>
                                 <li><a href="cadastro.php">Cadastre-se </a></li>
-                                              <li><form action="login.php" method="post" name="login">
+                                              <li><form action="actions/login.php" method="post" name="login">
                                                 <table class="tabela">
                                                     <tr>
                                                         <td>
@@ -116,7 +116,6 @@
                                     <div class="bg">
                                         <div class="padding">
                                             <h3 class="p2 border-bot">O que procuro:</h3>
-
                                             <?php
                                             if ($cons == "") {
                                                 echo '<h2>Busca inválida. Tente novamente.</h2>';
@@ -257,16 +256,16 @@
         <script type="text/javascript"> Cufon.now();</script>
         <script type="text/javascript">
             $(window).load(function () {
-$('.slider')._TMS({
-    duration: 1000,
-        easing: 'easeOutQuart',
-        preset: 'simpleFade',
-        slideshow: 10000,
-        banners: 'fade',
-        pauseOnHover: true,
-        waitBannerAnimation: false,
-        pagination: '.pags'
-        });
+                $('.slider')._TMS({
+                    duration: 1000,
+                    easing: 'easeOutQuart',
+                    preset: 'simpleFade',
+                    slideshow: 10000,
+                    banners: 'fade',
+                    pauseOnHover: true,
+                    waitBannerAnimation: false,
+                    pagination: '.pags'
+                });
             });
         </script>
     </body>

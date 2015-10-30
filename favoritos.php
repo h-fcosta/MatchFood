@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-include 'connect.php';
-include 'sessao.php';
+include 'actions/connect.php';
+include 'actions/sessao.php';
 ?>
 <html lang="en">
     <head>
@@ -78,7 +78,7 @@ include 'sessao.php';
                                     <li><a href="sobre.php">Sobre Nós</a></li>
                                     <li><a href="contato.php">Contato</a></li>
                                     <li><a class="active" href="favoritos.php">Favoritos</a></li>
-                                    <li><a href="logout.php">Bem vindo! Sair</a></li>';
+                                    <li><a href="actions/logout.php">Bem vindo! Sair</a></li>';
                         } else {
                             echo '<div class="main-menu">
                         <nav>
@@ -87,7 +87,7 @@ include 'sessao.php';
                                 <li><a href="sobre.php">Sobre Nós</a></li>
                                 <li><a href="contato.php">Contato</a></li>
                                 <li><a href="cadastro.php">Cadastre-se </a></li>
-                                              <li><form action="login.php" method="post" name="login">
+                                              <li><form action="actions/login.php" method="post" name="login">
                                                 <table class="tabela">
                                                     <tr>
                                                         <td>

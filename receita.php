@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <?php
-    include ("connect.php");
-    include ("sessao.php");
+    include ("actions/connect.php");
+    include ("actions/sessao.php");
     ?>
     <head>
         <?php
@@ -74,7 +74,7 @@
                                     <li><a href="sobre.php">Sobre Nós</a></li>
                                     <li><a href="contato.php">Contato</a></li>
                                     <li><a href="favoritos.php">Favoritos</a></li>
-                                    <li><a href="logout.php">Bem vindo! Sair</a></li>';
+                                    <li><a href="actions/logout.php">Bem vindo! Sair</a></li>';
                         } else {
                             echo '<div class="main-menu">
                         <nav>
@@ -83,7 +83,7 @@
                                 <li><a href="sobre.php">Sobre Nós</a></li>
                                 <li><a href="contato.php">Contato</a></li>
                                 <li><a href="cadastro.php">Cadastre-se </a></li>
-                                              <li><form action="login.php" method="post" name="login">
+                                              <li><form action="actions/login.php" method="post" name="login">
                                                 <table class="tabela">
                                                     <tr>
                                                         <td>
@@ -155,18 +155,18 @@
                                 </p>
                                     <h3 class="border-bot">Informações:</h3>
 
-                                    <blockquote>Tempo de Preparo</blockquote>
+                                    <blockquote><img src="images/tempo.png">Tempo de Preparo</blockquote>
                                     <div>
                                         <strong class="color-3">' . $tempo . '</strong>
                                     </div>
                                     <br> 
-                                    <blockquote>Rendimento</blockquote>
+                                    <blockquote><img src="images/rendimento.png">Rendimento</blockquote>
                                     <div>
                                         <strong class="color-3">' . $rendimento . '</strong>
                                     </div>
 
                                     <br> 
-                                    <blockquote>Tags</blockquote>
+                                    <blockquote><img src="images/tag.png">Tags</blockquote>
                                     <div>
                                         <strong class="color-3">Italiana, lasanha, carne moída, queijo, massa </strong>
                                     </div>';
@@ -175,9 +175,9 @@
                                         <?php
                                         
                                         if ($status != null) {
-                                            echo'<a href="favoritar.php?id='.$idT.'&idUser='.$loginSession.'">Add Favoritos</a>';
+                                            echo'<a href="actions/favoritar.php?id='.$idT.'&idUser='.$loginSession.'"><img src="images/favorito.png"><b>Favoritar</b></a>';
                                         }else{
-                                            echo '<a href="cadastro.php">Cadastre-se</a> agora e adicione essa receita nos seus favoritos!';
+                                            echo '<a href="actions/cadastro.php">Cadastre-se</a> agora e adicione essa receita nos seus favoritos!';
                                         }
                                         ?>
                                         </article>
