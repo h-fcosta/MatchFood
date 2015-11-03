@@ -182,29 +182,51 @@
                             <h1 class="page-header">
                                 Painel do Administrador <small>Inserção</small>
                             </h1>
-                            <ol class="breadcrumb">
-                                <li class="active">
-                                    <i class="fa fa-dashboard"></i> Inserção
-                                </li>
-                            </ol>
+                            
                         </div>
                     </div>
-                    <form action='inserir.php' method="post" enctype="multipart/form-data">
+                    <form action='editar.php' method="post" enctype="multipart/form-data">
                         <table class="table">
-                            <!--tr>
-                                <td>
-                                    Foto
-                                </td>
-                                <td>
-                                    <input name="foto" type="file">
-                                </td>
-                            </tr-->
-                            <tr>
+                            <?php
+                            $idE = $_GET['id'];
+                            $query_e = mysqli_query($link, "SELECT * FROM receitas where idReceitas='$idE'");
+
+                            while ($edit = mysqli_fetch_array($query_e)) {
+                                // foto $nome= $edit['nomeRec'];
+                                $id = $edit['idReceitas'];
+                                $nome = $edit['NomeRec'];
+                                $tipo = $edit['Tipo'];
+                                $origem = $edit['Origem'];
+                                $tempo = $edit['Tempo'];
+                                $rend = $edit['Rendimento'];
+                                $ingredientes = $edit['Ingredientes'];
+                                $modo = $edit['Modo'];
+                                $tag1 = $edit['Tag1'];
+                                $tag2 = $edit['Tag2'];
+                                $tag3 = $edit['Tag3'];
+                                $tag4 = $edit['Tag4'];
+                                $tag5 = $edit['Tag5'];
+                                $tag6 = $edit['Tag6'];
+                                $tag7 = $edit['Tag7'];
+                                $tag8 = $edit['Tag8'];
+                                $tag9 = $edit['Tag9'];
+                                $tag10 = $edit['Tag10'];
+                            }
+                            /* <!--tr>
+                              <td>
+                              Foto
+                              </td>
+                              <td>
+                              <input name="foto" type="file">
+                              </td>
+                              </tr--> */
+                            echo '<input type="text" name="id" value="'.$id.'" style="visibility: hidden; height:0px; width:0px;">
+                                <tr>
                                 <td>
                                     Nome da Receita
                                 </td>
                                 <td >
-                                    <input type="text" name="nomeRec" class="form-control" style="width: 75%;">
+                                    <input type="text" name="nomeRec" class="form-control" value="' . $nome . '" style="width: 75%;">
                                 </td>
                             </tr>
                             <tr>
@@ -212,7 +234,7 @@
                                     Tipo
                                 </td>
                                 <td >
-                                    <input type="text" name="tipo" class="form-control" style="width: 75%;">
+                                    <input type="text" name="tipo" class="form-control" value="' . $tipo . '" style="width: 75%;">
                                 </td>
                             </tr>
                             <tr>
@@ -220,7 +242,7 @@
                                     Origem
                                 </td>
                                 <td >
-                                    <input type="text" name="origem" class="form-control" style="width: 75%;">
+                                    <input type="text" name="origem" class="form-control" value="' . $origem . '" style="width: 75%;">
                                 </td>
                             </tr>
                             <tr>
@@ -228,7 +250,7 @@
                                     Tempo
                                 </td>
                                 <td >
-                                    <input type="text" name="tempo" class="form-control" style="width: 75%;">
+                                    <input type="text" name="tempo" class="form-control" value="' . $tempo . '" style="width: 75%;">
                                 </td>
                             </tr>
                             <tr>
@@ -236,7 +258,7 @@
                                     Rendimento
                                 </td>
                                 <td >
-                                    <input type="text" name="rendimento" class="form-control" style="width: 75%;">
+                                    <input type="text" name="rendimento" class="form-control" value="' . $rend . '"  style="width: 75%;">
                                 </td>
                             </tr>
                             <tr>
@@ -244,9 +266,9 @@
                                     Ingredientes
                                 </td>
                                 <td>
-                                    <textarea name="ingredientes" id="ingredientes"></textarea>
+                                    <textarea name="ingredientes" id="ingredientes">' . $ingredientes . '</textarea>
                                     <script>
-                                        CKEDITOR.replace('ingredientes');
+                                        CKEDITOR.replace(\'ingredientes\');
                                     </script>
                                 </td>
                             </tr>
@@ -255,88 +277,89 @@
                                     Modo de Fazer
                                 </td>
                                 <td>
-                                    <textarea name="modo" id="modo"></textarea>
+                                    <textarea name="modo" id="modo">' . $modo . '</textarea>
                                     <script>
-                                        CKEDITOR.replace('modo');
+                                        CKEDITOR.replace(\'modo\');
                                     </script>
                                 </td>
                             </tr>
-                            <table class="table">
-                                <tr>
-                                    <td class="tags">
-                                        Tag 1
-                                    </td>
-                                    <td>
-                                        <input type="text" name="tag1" class="form-control">
-                                    </td>
-                                    <td class="tags">
-                                        Tag 2
-                                    </td>
-                                    <td>
-                                        <input type="text" name="tag2" class="form-control">
-                                    </td>
-                                    <td class="tags">
-                                        Tag 3
-                                    </td>
-                                    <td>
-                                        <input type="text" name="tag3" class="form-control">
-                                    </td>
-                                    <td class="tags">
-                                        Tag 4
-                                    </td>
-                                    <td>
-                                        <input type="text" name="tag4" class="form-control">
-                                    </td>
-                                    <td class="tags">
-                                        Tag 5
-                                    </td>
-                                    <td>
-                                        <input type="text" name="tag5" class="form-control">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="tags">
-                                        Tag 6
-                                    </td>
-                                    <td>
-                                        <input type="text" name="tag6" class="form-control">
-                                    </td>
-                                    <td class="tags">
-                                        Tag 7
-                                    </td>
-                                    <td>
-                                        <input type="text" name="tag7" class="form-control">
-                                    </td>
-                                    <td class="tags">
-                                        Tag 8
-                                    </td>
-                                    <td>
-                                        <input type="text" name="tag8" class="form-control">
-                                    </td>
-                                    <td class="tags">
-                                        Tag 9
-                                    </td>
-                                    <td>
-                                        <input type="text" name="tag9" class="form-control">
-                                    </td>
-                                    <td class="tags">
-                                        Tag 10
-                                    </td>
-                                    <td>
-                                        <input type="text" name="tag10" class="form-control">
-                                    </td>
-                                </tr>
-                            </table>
+                        </table>
+                        <table class="table">
+                            <tr>
+                                <td class="tags">
+                                    Tag 1
+                                </td>
+                                <td>
+                                    <input type="text" name="tag1" class="form-control" value="' . $tag1 . '" >
+                                </td>
+                                <td class="tags">
+                                    Tag 2
+                                </td>
+                                <td>
+                                    <input type="text" name="tag2" class="form-control" value="' . $tag2 . '">
+                                </td>
+                                <td class="tags">
+                                    Tag 3
+                                </td>
+                                <td>
+                                    <input type="text" name="tag3" class="form-control" value="' . $tag3 . '">
+                                </td>
+                                <td class="tags">
+                                    Tag 4
+                                </td>
+                                <td>
+                                    <input type="text" name="tag4" class="form-control" value="' . $tag4 . '">
+                                </td>
+                                <td class="tags">
+                                    Tag 5
+                                </td>
+                                <td>
+                                    <input type="text" name="tag5" class="form-control" value="' . $tag5 . '">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tags">
+                                    Tag 6
+                                </td>
+                                <td>
+                                    <input type="text" name="tag6" class="form-control" value="' . $tag6 . '">
+                                </td>
+                                <td class="tags">
+                                    Tag 7
+                                </td>
+                                <td>
+                                    <input type="text" name="tag7" class="form-control" value="' . $tag7 . '">
+                                </td>
+                                <td class="tags">
+                                    Tag 8
+                                </td>
+                                <td>
+                                    <input type="text" name="tag8" class="form-control" value="' . $tag8 . '">
+                                </td>
+                                <td class="tags">
+                                    Tag 9
+                                </td>
+                                <td>
+                                    <input type="text" name="tag9" class="form-control" value="' . $tag9 . '">
+                                </td>
+                                <td class="tags">
+                                    Tag 10
+                                </td>
+                                <td>
+                                    <input type="text" name="tag10" class="form-control" value="' . $tag10 . '">
+                                </td>
+                            </tr>
+                        </table>';
+                            ?>
                             <table>
                                 <tr>
                                     <td>
                                     </td>
                                     <td style="padding-left: 683px;">
-                                        <button type="submit" class="btn" style="width: 200px;">Enviar</button>
+                                        <button type="submit" class="btn" style="width: 200px;" onclick="return confirm('Deseja alterar as infos da receita?');">Enviar</button>
                                     </td>
                                 </tr>
                             </table>
-
                         </table>
                     </form>
                 </div>
