@@ -112,9 +112,9 @@
                                     <div class="indent-left">  
                                         <?php
                                         @$id = $_GET['id'];
-                                        $query = mysqli_query($link, "SELECT Foto, NomeRec, Tipo, Origem, Ingredientes, Modo, Tempo, Rendimento FROM receitas where idReceitas = '$id';");
+                                        $query = mysqli_query($link, "SELECT * FROM receitas where idReceitas = '$id';");
 
-                                        while ($info = mysqli_fetch_array($query)) {
+                                        while ($info = mysqli_fetch_assoc($query)) {
                                             $foto = $info['Foto'];
                                             $nome = $info['NomeRec'];
                                             $tipo = $info['Tipo'];
@@ -123,6 +123,16 @@
                                             $modo = $info['Modo'];
                                             $tempo = $info['Tempo'];
                                             $rendimento = $info['Rendimento'];
+                                            $tag1 = $info['Tag1'];
+                                            $tag2 = $info['Tag2'];
+                                            $tag3 = $info['Tag3'];
+                                            $tag4 = $info['Tag4'];
+                                            $tag5 = $info['Tag5'];
+                                            $tag6 = $info['Tag6'];
+                                            $tag7 = $info['Tag7'];
+                                            $tag8 = $info['Tag8'];
+                                            $tag9 = $info['Tag9'];
+                                            $tag10 = $info['Tag10'];
                                         }
                                         echo '<p align="justify"><h3 class="border-bot">' . $nome . '</h3>
 
@@ -168,16 +178,16 @@
                                     <br> 
                                     <blockquote><img src="images/tag.png">Tags</blockquote>
                                     <div>
-                                        <strong class="color-3">Italiana, lasanha, carne moída, queijo, massa </strong>
+                                        <strong class="color-3"><a href = "#    ">' . utf8_encode($tag1) . '</a>, <a href="#">' . utf8_encode($tag2) . '</a>, <a href="#">' . utf8_encode($tag3) . '</a>, <a href="#">' . utf8_encode($tag4) . '</a>, <a href="#">' . utf8_encode($tag5) . '</a>, <a href="#">'
+                                        . utf8_encode($tag6) . '</a>, <a href="#">' . utf8_encode($tag7) . '</a>, <a href="#">' . utf8_encode($tag8) . '</a>, <a href="#">' . utf8_encode($tag9) . '</a>, <a href="#">' . utf8_encode($tag10) . '</a></strong>
                                     </div>';
                                         ?>
                                         <br>
                                         <?php
-                                        
                                         if ($status != null) {
-                                            echo'<a href="actions/favoritar.php?id='.$idT.'&idUser='.$loginSession.'"><img src="images/favorito.png"><b>Favoritar</b></a>';
-                                        }else{
-                                            echo '<a href="actions/cadastro.php">Cadastre-se</a> agora e adicione essa receita nos seus favoritos!';
+                                            echo'<a href="actions/favoritar.php?id=' . $idT . '&idUser=' . $loginSession . '"><img src="images/favorito.png"><b> Favoritar</b></a>';
+                                        } else {
+                                            echo '<a href="cadastro.php">Cadastre-se</a> agora e adicione essa receita nos seus favoritos!';
                                         }
                                         ?>
                                         </article>

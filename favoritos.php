@@ -67,9 +67,6 @@ include 'actions/sessao.php';
                 <div class="menu-row">
                     <div class="menu-border">
                         <?php
-                        /*@session_start();
-                        @$status = $_SESSION['logado'];*/
-
                         if ($status != null) {
                             echo'<div class="main-menu-log">
                             <nav>
@@ -115,9 +112,9 @@ include 'actions/sessao.php';
                                 <article class="col-1">
                                     <div class="bg">
                                         <?php
-                                        
-
-                                        $query_fav = mysqli_query($link, "SELECT receitas.idReceitas, receitas.Foto, receitas.NomeRec, receitas.Tipo, receitas.Origem from Receitas join Favoritos on favoritos.receitas_idreceitas = receitas.idReceitas where favoritos.usuario_idusuario = $loginSession;");
+                                        $query_fav = mysqli_query($link, "SELECT receitas.idReceitas, receitas.Foto, receitas.NomeRec, receitas.Tipo,
+                                                                        receitas.Origem from Receitas join Favoritos on favoritos.receitas_idreceitas = receitas.idReceitas where 
+                                                                        favoritos.usuario_idusuario = $loginSession;");
                                         $num = mysqli_num_rows($query_fav);
 
                                         if ($num > 0) {
@@ -130,8 +127,8 @@ include 'actions/sessao.php';
                                                 <figure class="img-indent"><img src="' . $fav['Foto'] . '" style="width:200px; height:166px;" " alt="' . $fav['NomeRec'] . '" /></figure>
                                                 <div class="extra-wrap">
                                                     <h6>' . $fav['NomeRec'] . '</h6>
-                                                    <p class="p1">' . $fav['Tipo'] . '</p>
-                                                    <p class="p1">' . $fav['Origem'] . '</p>
+                                                    <p class="p1">' . utf8_encode($fav['Tipo'])  . '</p>
+                                                    <p class="p1">' . utf8_encode($fav['Origem']) . '</p>
                                                     <a class="button-2" href="receita.php?id=' . $fav['idReceitas'] . '">Ver Receita</a>
                                                 </div>
                                             </div>';

@@ -21,7 +21,7 @@ if ($link != null) {
 
             $queryUser = mysqli_query($link, "INSERT INTO `matchfood`.`usuario` (`Nome`, `Email`, `Senha`) VALUES ('$nome', '$email', '$senhaEnc');");
 
-            header("location: index.php");
+            header("location: ../index.php");
         }
     } else {
         echo "Email já utilizado";

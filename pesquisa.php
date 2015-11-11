@@ -147,9 +147,9 @@
                                                 $limite = ' LIMIT ' . ($pageNum - 1) * $page_rows . ',' . $page_rows;
 
                                                 $sql = 'SELECT * FROM receitas WHERE ';
-                                                foreach (array_filter(explode(" ", $cons), 'strlen') as $keyword) {
+                                                foreach (explode(" ", $cons) as $keyword) {
                                                     for ($i = 1; $i <= 10; $i++) {
-                                                        $where [] = 'tag' . $i . " LIKE '" . mysqli_escape_string($link, '%' . addcslashes($keyword, '%_\\') . '%') . "'";
+                                                        $where [] = 'tag' . $i . " LIKE '%" . $keyword . "%'";
                                                     }
                                                 }
 
@@ -165,7 +165,7 @@
                                                 $paginationCtrls = '';
 
                                                 if ($ult != 1) {
-                                                    if ($pageNum > 1) {
+                                                    if ($pageNum >= 1) {
                                                         $anterior = $pageNum - 1;
                                                         $paginationCtrls .= '<a href="pesquisa.php?s=' . $cons . '&p=' . $anterior . '">Anterior</a>  ';
                                                         for ($i = $pageNum - 4; $i < $pageNum; $i++) {
@@ -182,7 +182,7 @@
                                                         }
                                                     }
 
-                                                    if ($pageNum != $ult) {
+                                                    if ($pageNum == $ult) {
                                                         $prox = $pageNum + 1;
                                                         $paginationCtrls .= '  <a href="pesquisa.php?s=' . $cons . '&p=' . $prox . '">Próximo</a>';
                                                     }

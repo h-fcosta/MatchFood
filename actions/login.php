@@ -27,10 +27,10 @@ if (isset($_POST['submit'])) {
         if($num == 1){
             $_SESSION['login_user'] = $email;
             $_SESSION['logado'] = true;
-            header("location: favoritos.php");
+            header("location: ../favoritos.php");
         }else{
             echo 'ERRO';
-            header("location:index.php");
+            header("location:../index.php");
             //$erro = "Email ou senha inválidos";
         }
     }
