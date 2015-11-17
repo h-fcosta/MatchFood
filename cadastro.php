@@ -59,7 +59,7 @@
                             <nav>
                                 <ul class="menu">
                                     <li><a href="index.php">Home</a></li>
-                                    <li><a class="active" href="sobre.php">Sobre Nós</a></li>
+                                    <li><a href="sobre.php">Sobre Nós</a></li>
                                     <li><a href="contato.php">Contato</a></li>
                                     <li><a href="favoritos.php">Favoritos</a></li>
                                     <li><a href="logout.php">Bem vindo! Sair</a></li>';
@@ -68,9 +68,9 @@
                         <nav>
                             <ul class="menu">
                                 <li><a href="index.php">Home</a></li>
-                                <li><a class="active" href="sobre.php">Sobre Nós</a></li>
+                                <li><a href="sobre.php">Sobre Nós</a></li>
                                 <li><a href="contato.php">Contato</a></li>
-                                <li><a href="cadastro.php">Cadastre-se </a></li>
+                                <li><a class = "active" href="cadastro.php">Cadastre-se </a></li>
                                               <li><form action="actions/login.php" method="post" name="login">
                                                 <table class="tabela">
                                                     <tr>
@@ -110,6 +110,22 @@
                                     <div class="bg">
                                         <div class="padding">
                                             <form action="actions/cadastrar.php" method="post" name="cadastro">
+                                                <?php
+                                                if (isset($_GET['negative'])) {
+                                                    echo '<div class="alert alert-danger">
+                                                            <strong>ERRO!</strong> Senhas não combinam ou e-mail já está sendo utilizado. Tente novamente.
+                                                         </div>';
+                                                } else
+                                                if (isset($_GET['positive'])) {
+                                                    echo '<div class="alert alert-success">
+                                                            <strong>Cadastro realizado com sucesso!</strong>
+                                                        </div>';
+                                                }
+                                                
+                                                if($status == null){
+                                                    
+                                                
+                                                ?>
                                                 <p align="justify"><h3>Cadastro</h3>
                                                 <table class="table table-condensed">
                                                     <tr>
@@ -139,6 +155,13 @@
                                                     </tr>
                                                 </table>
                                             </form>
+                                            <?php
+                                                }else{
+                                                    echo '<div class="alert alert-danger">
+                                                            <strong>EI!</strong> Você já é cadastrado e não devia estar aqui.
+                                                         </div>';
+                                                }
+                                            ?>
                                             <h3></h3>
                                             <h6></h6>
                                             <p align="justify" class="p1"><span class="color-3"></span></p>
