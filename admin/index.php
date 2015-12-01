@@ -189,14 +189,14 @@
                         </div>
                         <form action='inserir.php' method="post" enctype="multipart/form-data">
                             <table class="table">
-                                <!--tr>
+                                <tr>
                                     <td>
                                         Foto
                                     </td>
                                     <td>
                                         <input name="foto" type="file">
                                     </td>
-                                </tr-->
+                                </tr>
                                 <tr>
                                     <td>
                                         Nome da Receita

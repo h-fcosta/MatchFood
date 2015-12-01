@@ -124,7 +124,7 @@ include 'actions/sessao.php';
 
                                             while ($fav = mysqli_fetch_assoc($query_fav)) {
                                                 echo '<div class="wrapper p3">
-                                                <figure class="img-indent"><img src="' . $fav['Foto'] . '" style="width:200px; height:166px;" " alt="' . $fav['NomeRec'] . '" /></figure>
+                                                <figure class="img-indent"><img src="admin/' . $fav['Foto'] . '" style="width:200px; height:166px;" " alt="' . $fav['NomeRec'] . '" /></figure>
                                                 <div class="extra-wrap">
                                                     <h6>' . $fav['NomeRec'] . '</h6>
                                                     <p class="p1">' . utf8_encode($fav['Tipo'])  . '</p>

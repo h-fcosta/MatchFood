@@ -4,6 +4,8 @@
         <title>MatchFood - Sobre Nós</title>
         <meta charset="utf-8">
         
+         <link rel="icon" href="images/teste.png" type="image/png" >
+
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
@@ -12,7 +14,7 @@
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        
+
         <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen">
@@ -36,15 +38,15 @@
             <header>
                 <div class="top-row" align="center">
                     <!--div align="center"-->
-                        <a href="index.php"><img src ="images/logo-1.png"></a>
+                    <a href="index.php"><img src ="images/logo-1.png"></a>
                     <!--/div>
                     <div class="main">
                         <div class="wrapper"-->
-                            <ul class="pagination">
-                                <li class="current" style="visibility: hidden;"><a href="images/back_wood.jpg"></a></li>
-                            </ul>
-                        <!--/div>
-                    </div-->
+                    <ul class="pagination">
+                        <li class="current" style="visibility: hidden;"><a href="images/back_wood.jpg"></a></li>
+                    </ul>
+                    <!--/div>
+                </div-->
                 </div>
                 <div class="menu-row">
                     <div class="menu-border">
@@ -95,24 +97,29 @@
                         <div class="indent">
                             <div class="wrapper">
                                 <article class="col-1">
-                                    <div class="indent-left">
-                                        <p align="justify"><h3>Sobre Nós</h3>
-                                        <h6>Se você não sabe se a comida que tem em casa resulta em um bom prato, agora já pode descobrir! Busca de receitas por ingredientes da sua escolha, está a um clique de você.  </h6></p>
-                                        <p align="justify">A ideia surgiu em uma conversa entre amigos, onde o primeiro foco foram universitários ou pessoas que estavam recentemente morando sozinhas e não sabiam o que cozinhar. Compartilhando essa ideia com nossos amigos, percebemos que além dessas pessoas que moravam em república e queriam descobrir como cozinhar e o que cozinhar, despertou também curiosidade em donas de casa e outras pessoas que cozinham com frequência. "Será que esses ingredientes dariam uma boa receita?", e se não der, você pode fazer o desafio ao nosso chef! Entre em contato conosco dizendo seus ingredientes escolhidos e o desafio será lançado!</p>
-                                        <div class="wrapper p3">
-                                            <figure class="img-indent"><img src="images/prato.jpg" style="height:170px; width:170px;" alt="" /></figure>
-                                            <div class="extra-wrap">
-                                                <p align="justify"><h6>Porque receita boa, tem aqui.</h6></p>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="bg">
                                         <div class="padding">
-                                            <h3>Por que nos escolher?</h3>
-                                            <h6>Com certeza você já utilizou algum outro site ou aplicativo em seu celular para pesquisar receitas.</h6>
-                                            <p align="justify" class="p1">Mas em qual deles você conseguiu descobrir se o que tem no seu armário ou na sua geladeira, seria o suficiente para uma receita sem que você saísse de casa para comprar algo que faltasse? Queremos oferecer à <span class="color-3">você</span>, um meio fácil de descobrir mais na cozinha e também levá-la para todos os lugares. Podendo também carregar em seu celular downloads de receitas de sua escolha (visualizando sem internet), utilizando nosso app.</p>
-                                            <div class="wrapper">
-
+                                            <div class="indent-left">
+                                                <p align="justify"><h3>Sobre Nós</h3>
+                                                <p align="justify">Se você não sabe se a comida que tem em casa resulta em um bom prato, agora já pode descobrir! Busca de receitas por ingredientes da sua escolha, está a um clique de você.</p>
+                                                <p align="justify">A ideia surgiu em uma conversa entre amigos, onde o primeiro foco foram universitários ou pessoas que estavam recentemente morando sozinhas e não sabiam o que cozinhar. Compartilhando essa ideia com nossos amigos, percebemos que além dessas pessoas que moravam em república e queriam descobrir como cozinhar e o que cozinhar, despertou também curiosidade em donas de casa e outras pessoas que cozinham com frequência. "Será que esses ingredientes dariam uma boa receita?"</p>
+                                                <br>
+                                                <p align="justify"><h3>Por que nos escolher?</h3></p>
+                                                <p align="justify">Com certeza você já utilizou algum outro site ou aplicativo em seu celular para pesquisar receitas.</p>
+                                                <p align="justify" class="p1">Mas em qual deles você conseguiu descobrir se o que tem no seu armário ou na sua geladeira, seria o suficiente para uma receita sem que você saísse de casa para comprar algo que faltasse? Queremos oferecer à <span class="color-3">você</span>, um meio fácil de descobrir mais na cozinha e também levá-la para todos os lugares.</p>
+                                                <br>
+                                                <div class="wrapper p3">
+                                                    <figure class="img-indent"><img src="images/henrique.jpg" class="img-circle" style="height:170px; width:170px;" alt="" /></figure>
+                                                    <div class="extra-wrap">
+                                                        <p align="justify" style="margin-top: 20px;">Henrique Fernandes Costa, 21 anos, gaúcho de Porto Alegre e torcedor do Grêmio desde que se conhece como gente. Sempre gostei de mexer com computadores, jogar videogame, jogar futebol, assistir filmes e séries, e recentemente começou a tomar gosto por cozinhar.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="wrapper p3">
+                                                    <figure class="img-indent"><img src="images/natalia.jpg" class="img-circle" style="height:170px; width:170px;margin-top: 21px;" alt="" /></figure>
+                                                    <div class="extra-wrap">
+                                                        <p align="justify" style="margin-top: 20px;">Natália Menezello, 22 anos, uma campineira apaixonada por arte, seja isso em música, filmes, fotografias ou gastronomia. A facilidade na área de logística sempre foi clara, mas somente após explorar o meu lado criativo, cursando publicidade e propaganda, descobri que minha paixão estava para o outro lado. Meus hobbies são tocar diversos instrumentos (principalmente de cordas) e cantar, assistir filmes e séries, sem contar com as horas jogando vídeo game desde pequena e também a paixão pelo handball.</p>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -157,7 +164,6 @@
                         <ul class="list-services">
                             <li>Siga-nos:</li>
                             <li><a class="tooltips" title="facebook" href="#"></a></li>
-                            <li class="item-1"><a class="tooltips" title="twitter" href="#"></a></li>
                         </ul>
                     </div>
                 </div>

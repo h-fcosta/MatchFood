@@ -179,7 +179,7 @@
                             <h1 class="page-header">
                                 Painel do Administrador <small>Edição</small>
                             </h1>
-                            
+
                         </div>
                     </div>
                     <form action='editar.php' method="post" enctype="multipart/form-data">
@@ -189,7 +189,7 @@
                             $query_e = mysqli_query($link, "SELECT * FROM receitas where idReceitas='$idE'");
 
                             while ($edit = mysqli_fetch_array($query_e)) {
-                                // foto $nome= $edit['nomeRec'];
+                                $foto = $edit['Foto'];
                                 $id = $edit['idReceitas'];
                                 $nome = $edit['NomeRec'];
                                 $tipo = $edit['Tipo'];
@@ -209,15 +209,15 @@
                                 $tag9 = $edit['Tag9'];
                                 $tag10 = $edit['Tag10'];
                             }
-                            /* <!--tr>
+                            echo '<tr>
                               <td>
                               Foto
                               </td>
                               <td>
-                              <input name="foto" type="file">
+                              <input name="foto" type="file"><a href="' . $foto . '" target="_blank"><img src="' . $foto . '" width="100px"/></a>
                               </td>
-                              </tr--> */
-                            echo '<input type="text" name="id" value="'.$id.'" style="visibility: hidden; height:0px; width:0px;">
+                              </tr>
+                            <input type="text" name="id" value="' . $id . '" style="visibility: hidden; height:0px; width:0px;">
                                 <tr>
                                 <td>
                                     Nome da Receita

@@ -3,7 +3,9 @@
     <head>
         <title>MatchFood - Contato</title>
         <meta charset="utf-8">
-        
+
+        <link rel="icon" href="images/teste.png" type="image/png" >
+
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
@@ -12,7 +14,7 @@
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        
+
         <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
         <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen">
@@ -46,15 +48,15 @@
             <header>
                 <div class="top-row" align="center">
                     <!--div align="center"-->
-                        <a href="index.php"><img src ="images/logo-1.png"></a>
+                    <a href="index.php"><img src ="images/logo-1.png"></a>
                     <!--/div>
                     <div class="main">
                         <div class="wrapper"-->
-                            <ul class="pagination">
-                                <li class="current" style="visibility: hidden;"><a href="images/back_wood.jpg"></a></li>
-                            </ul>
-                        <!--/div>
-                    </div-->
+                    <ul class="pagination">
+                        <li class="current" style="visibility: hidden;"><a href="images/back_wood.jpg"></a></li>
+                    </ul>
+                    <!--/div>
+                </div-->
                 </div>
                 <div class="menu-row">
                     <div class="menu-border">
@@ -106,32 +108,35 @@
                         <div class="indent">
                             <div class="wrapper">
                                 <article class="col-1">
-                                    <div class="indent-left">
-                                        <h3>Envie-nos um E-mail!</h3>
-                                        <div class="p3">
-                                            <form id="contact-form" method="post" enctype="multipart/form-data">                    
-                                                <fieldset>
-                                                    <label><span class="text-form">Nome:</span><input name="p1" type="text" /></label>
-                                                    <label><span class="text-form">E-mail:</span><input name="p2" type="text" /></label>                              
-                                                    <div class="wrapper">
-                                                        <div class="text-form">Mensagem:</div>
-                                                        <div class="extra-wrap">
-                                                            <textarea></textarea>
-                                                            <div class="clear"></div>
-                                                            <div class="buttons">
-                                                                <!--        <a class="button-2" href="#" onClick="document.getElementById('contact-form').reset()">Limpar</a>
-                                                                -->
-                                                                <a class="button-2" href="#" onClick="document.getElementById('contact-form').submit()">Enviar</a>
-                                                            </div> 
-                                                        </div>
-                                                    </div>                            
-                                                </fieldset>						
-                                            </form>
+                                    <div class="bg" style="padding-right: 15px;">
+                                        <div class="indent-left">
+                                            <h3>Contato</h3><br>
+                                            <p align="justify">Se você quiser compartilhar sua receita com o mundo, mande para <a href="mailto:contato.matchfood@gmail.com">contato.matchfood@gmail.com</a> e curta nossa página no <a href="https://www.facebook.com/matchfood/">Facebook</a> e fique por dentro das novidades</p><br>
+                                            <div class="p3">
+                                                <h3>Os Desenvolvedores</h3><br>
+                                                <div class="wrapper p3">
+                                                    <figure class="img-indent"><img src="images/henrique.jpg" class="img-circle" style="height:120px; width:120px;" alt="" /></figure>
+                                                    <div class="extra-wrap">
+                                                        <p align="justify" style="margin-top: 20px;"><b>E-mail:</b> <a href="mailto:henriquefcosta19@gmail.com">henriquefcosta19@gmail.com</a><br>
+                                                            <b>Twitter:</b> <a href="https://twitter.com/hfcosta19">@hfcosta19</a><br>
+                                                            <b>Instagram:</b> <a href="https://www.instagram.com/henriquefcosta19/">@henriquefcosta19</a><br>
+                                                            <b>LinkedIn:</b> <a href="https://br.linkedin.com/in/henriquefcosta19">https://br.linkedin.com/in/henriquefcosta19</a></p>
+                                                    </div>
+                                                </div>
+                                                <div class="wrapper p3">
+                                                    <figure class="img-indent"><img src="images/natalia.jpg" class="img-circle" style="height:120px; width:120px;" alt="" /></figure>
+                                                    <div class="extra-wrap">
+                                                        <p align="justify" style="margin-top: 20px;"><b>E-mail:</b> <a href="mailto:n.menezello@gmail.com">n.menezello@gmail.com</a><br>
+                                                            <b>Instagram:</b> <a href="https://www.instagram.com/natimenezello/">@natimenezello</a><br>
+                                                            <b>LinkedIn:</b> <a href="https://www.linkedin.com/in/nat%C3%A1lia-menezello-73813367">https://www.linkedin.com/in/natália-menezello-73813367</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </article>
-                                <article class="col-2">
-                                    <h3 class="border-bot indent-bot">Nosso Contato</h3>
+                                <!--article class="col-2">
+                                    <!--h3 class="border-bot indent-bot">Nosso Contato</h3>
                                     <div class="img-indent-bot">
                                         <h6>SÃO PAULO</h6>
                                         <dl>
@@ -156,7 +161,7 @@
                                         <dd><span>E-mail:</span><a href="#">mail@thomsander.com</a></dd>
                                     </dl>
                                     -->
-                                </article>
+                                </article-->
                             </div>
                         </div>
                     </section>

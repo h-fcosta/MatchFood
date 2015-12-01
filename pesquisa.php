@@ -196,7 +196,7 @@
                                                     $origem = $info['Origem'];
 
                                                     echo '<div class="wrapper p3">
-                                                <figure class="img-indent"><img src="' . $foto . '" style="width:200px; height:166px;" alt="" /></figure>
+                                                <figure class="img-indent"><img src="admin/' . $foto . '" style="width:200px; height:166px;" alt="" /></figure>
                                                 <div class="extra-wrap">
                                                     <h6>' . $nome . '</h6>
                                                     <p class="p1">' . $tipo . '<br>

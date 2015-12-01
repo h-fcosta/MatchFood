@@ -107,37 +107,57 @@
             <section id="content">
                 <div class="slider">
                     <ul class="items">
-                        <li>
-                            <img src="images/slider-img1.jpg" alt="" />
+                        <?php
+                        $query_1 = mysqli_query($link, "SELECT Foto from receitas where idReceitas = '50'");
+                        
+                        while($info1 = mysqli_fetch_array($query_1)){
+                            $foto1 = $info1['Foto'];
+                        }                        
+                        
+                        $query_2 = mysqli_query($link, "SELECT Foto from receitas where idReceitas = '44'");
+                        
+                        while($info2 = mysqli_fetch_array($query_2)){
+                            $foto2 = $info2['Foto'];
+                        }
+                        
+                        $query_3 = mysqli_query($link, "SELECT Foto from receitas where idReceitas = '52'");
+                        
+                        while($info3 = mysqli_fetch_array($query_3)){
+                            $foto3 = $info3['Foto'];
+                        }
+                        
+                        echo '<li>
+                            <img src="admin/'.$foto1 .'" alt="" />
                             <div class="banner">
                                 <strong class="title">
-                                    <strong>Sua</strong><em>Lasanha</em>
+                                    <strong>Queijo</strong><em>de Batata</em>
                                 </strong>
-                                <p class="p3">Uma deliciosa receita de lasanha.</p>
-                                <a class="btn button-1" href="receita.html">Leia mais</a>
+                                <p class="p3">Um queijo vegano saboroso.</p>
+                                <a class="btn button-1" href="receita.php?id=50">Leia mais</a>
                             </div>
                         </li>
                         <li>
-                            <img src="images/slider-img2.jpg" alt="" />
+                            <img src="admin/'.$foto2.'" alt="" />
                             <div class="banner">
                                 <strong class="title">
-                                    <strong>Seu</strong><em>Shimeji</em>
+                                    <strong>Frango</strong><em>Milanesa</em>
                                 </strong>
-                                <p>Um shimeji muito bem temperado na manteiga.</p>
-                                <a class="btn button-1" href="#">Leia mais</a>
+                                <p>Um frango levemente crocante e gostoso!</p>
+                                <a class="btn button-1" href="receita.php?id=44">Leia mais</a>
                             </div>
                         </li>
                         <li>
-                            <img src="images/slider-img3.jpg" alt="" />
+                            <img src="admin/'.$foto3.'" alt="" />
                             <div class="banner">
                                 <strong class="title">
-                                    <strong>Risoto</strong><em>Limao</em>
+                                    <strong>Galinha</strong><em>la Creme</em>
                                 </strong>
-                                <p>Risoto de limão siliciano, parece bom, não? É maravilhoso.</p>
-                                <a class=" btn button-1" href="#">Leia mais</a>
+                                <p>Uma galinha assada com muito sabor</p>
+                                <a class=" btn button-1" href="receita.php?id=52">Leia mais</a>
                             </div>
                         </li>
-                    </ul>
+                    </ul>';
+                    ?>
                     <a class="banner-2" href="#"></a>
                 </div>
                 <ul class="pags">

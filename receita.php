@@ -137,14 +137,15 @@
                                         echo '<p align="justify"><h3 class="border-bot">' . $nome . '</h3>
 
                                         <div class="wrapper p3">
-                                            <figure class="img-indent"><img src="' . $foto . '" style="height:375px; width:640px;" alt="" /></figure>
+                                            <figure class="img-indent"><img src="admin/' . $foto . '" style="height:375px; width:640px;" alt="" /></figure>
                                         </div>
 
-                                        <h6>INGREDIENTES: </h6></p>
-                                        <p>' . $ingredientes . '</p>
+                                        
                                     </div>
                                     <div class="bg">
                                         <div class="padding">
+                                        <h3>Ingredientes: </h3></p>
+                                        <p>' . $ingredientes . '</p>
                                             <h3>Modo de Preparo:</h3>
                                             <p align="justify" class="p1">' . $modo . '</p>
                                             <div class="wrapper">

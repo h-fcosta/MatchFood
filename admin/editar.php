@@ -2,6 +2,33 @@
 include '../actions/connect.php';
 
 $id=$_POST['id'];
+
+$pasta = "fotos/";
+$foto = '';
+$permitidos = array(".jpg", ".jpeg", ".png");
+
+if (isset($_FILES['foto']['name'])) {
+    $nome_imagem = $_FILES['foto']['name'];
+    $tamanho_imagem = $_FILES['foto']['size'];
+    $ext = strtolower(strrchr($nome_imagem, "."));
+
+    if (in_array($ext, $permitidos)) {
+
+        $nome_atual = md5(uniqid(time())) . $ext;
+        $tmp = $_FILES['foto']['tmp_name'];
+        if (move_uploaded_file($tmp, $pasta . $nome_atual)) {
+            $foto = $pasta . $nome_atual;
+            mysqli_query($link, "UPDATE `matchfood`.`receitas` SET `Foto`='$foto' WHERE `idReceitas`='$id' and`Usuario_idUsuario`='1';");
+        } else {
+            echo "Falha ao enviar";
+        }
+    } else {
+        echo "Tipo de arquivo não suportado";
+    }
+} else {
+    echo "Seleciona uma imagem";
+}
+
 $nomeRec = $_POST['nomeRec'];
 $tipo = $_POST['tipo'];
 $origem = $_POST['origem'];
